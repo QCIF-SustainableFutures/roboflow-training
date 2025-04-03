@@ -1,6 +1,6 @@
-# Computer Vision Training for The Gambia
+# Roboflow Training: Computer Vision 
 
-This repository contains the code and resources for the Computer Vision Training for The Gambia. 
+This repository contains the code and resources for the Roboflow and computer vision training to WildObs, QCIF and DETSI. 
 
 ## Install the required packages
 To install the required packages using the requirements.txt, run the following pip command in your terminal
