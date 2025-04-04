@@ -419,7 +419,11 @@ Dr Sebastian Lopez Marcano <a href="https://orcid.org/0000-0002-0814-2906" class
 <h2>Modules Overview</h2>
 <ul>
 <li><strong>Module 1</strong>: AI, Deep Learning, and Computer Vision</li>
-<li><strong>Module 2</strong>: The entire computer vision workflow</li>
+<li><strong>Module 2</strong>: Understanding the computer vision workflow</li>
+<li><strong>Module 3</strong>: Building your model development dataset</li>
+<li><strong>Module 4</strong>: Model training and evaluation</li>
+<li><strong>Module 5</strong>: Model inference</li>
+<li><strong>Module 6</strong>: Roboflow workflows</li>
 </ul>
 </section>
 <section class="slide level2">
@@ -433,19 +437,12 @@ Dr Sebastian Lopez Marcano <a href="https://orcid.org/0000-0002-0814-2906" class
 <div class="quarto-figure quarto-figure-center">
 <figure>
 <p><img data-src="assets/1-s2.0-S0886779820306313-gr4.jpg"></p>
-<figcaption>A visual representation of AI, Deep Learning, and Computer Vision</figcaption>
+<figcaption>“Deep Learning Diagram”</figcaption>
 </figure>
 </div>
 </div><div class="column" style="width:60%;">
-<p><strong>What is Deep Learning?</strong></p>
-<ul>
-<li>A subset of Machine Learning to train neural networks and make predictions</li>
-</ul>
-<p><strong>What is Computer Vision?</strong></p>
-<ul>
-<li>A field of AI that enables computers to interpret and understand visual information</li>
-<li>Key applications: classification, object detection and segmentation</li>
-</ul>
+<p><strong>What is Deep Learning?</strong> - A subset of Machine Learning to train neural networks and make predictions</p>
+<p><strong>What is Computer Vision?</strong> - A field of AI that enables computers to interpret and understand visual information - Key applications: classification, object detection and segmentation</p>
 </div></div>
 </section>
 <section id="computer-vision-tasks" class="slide level2">
@@ -460,8 +457,8 @@ Dr Sebastian Lopez Marcano <a href="https://orcid.org/0000-0002-0814-2906" class
 
 <img data-src="assets/img-classification_detection.png" class="r-stretch"></section></section>
 <section>
-<section id="module-2-the-entire-computer-vision-workflow" class="title-slide slide level1 center">
-<h1>Module 2: The entire computer vision workflow</h1>
+<section id="module-2-understanding-the-computer-vision-workflow" class="title-slide slide level1 center">
+<h1>Module 2: Understanding the computer vision workflow</h1>
 
 </section>
 <section id="key-steps-with-the-roboflow-sparkle" class="slide level2">
@@ -473,9 +470,10 @@ Dr Sebastian Lopez Marcano <a href="https://orcid.org/0000-0002-0814-2906" class
 <li>Data splitting</li>
 <li><span style="color:purple;">Data upload</span></li>
 <li><span style="color:purple;">Data annotation</span></li>
-<li><span style="color:purple;">Model training📝</span></li>
-<li><span style="color:purple;">Model evaluation📝</span></li>
-<li><span style="color:purple;">Model inference📝</span></li>
+<li><span style="color:purple;">Building your model development dataset</span></li>
+<li><span style="color:purple;">Model training</span></li>
+<li><span style="color:purple;">Model evaluation</span></li>
+<li><span style="color:purple;">Model inference</span></li>
 <li>Post-processing</li>
 </ul>
 </section>
@@ -516,12 +514,7 @@ Dr Sebastian Lopez Marcano <a href="https://orcid.org/0000-0002-0814-2906" class
 <section id="data-splitting-part-1" class="slide level2">
 <h2>Data Splitting Part 1</h2>
 <ul>
-<li>Model development dataset
-<ul>
-<li>Model training (e.g., 70% of data)</li>
-<li>Model validation (e.g., 10% of data)</li>
-<li>Model evaluation dataset (e.g., 20% of data)</li>
-</ul></li>
+<li>Model development dataset (e.g., training, validation, evaluation)</li>
 <li>Inference dataset</li>
 </ul>
 <p>Depending on the dataset size, model development can be between 10-20% of the total dataset.</p>
@@ -558,17 +551,22 @@ Dr Sebastian Lopez Marcano <a href="https://orcid.org/0000-0002-0814-2906" class
 </div>
 </div>
 </div>
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Important</strong></p>
+</div>
+<div class="callout-content">
+<p>In Roboflow, you will have to split your dataset into training, validation and evaluation sets</p>
+</div>
+</div>
+</div>
 </section>
-<section id="data-splitting-part-3-selecting-training-validation-eval" class="slide level2">
-<h2>Data Splitting Part 3: Selecting training / validation / eval</h2>
-<ul>
-<li><strong>Training</strong>: Used to train the model - 70% of model development data</li>
-<li><strong>Validation</strong>: Used to tune hyperparameters and prevent overfitting - 10% of model development data</li>
-<li><strong>Evaluation</strong>: Used to assess the model’s performance on unseen data - 20% of data of model development</li>
-</ul>
-</section>
-<section id="data-splitting-part-4-importance-of-metadata" class="slide level2">
-<h2>Data Splitting Part 4: Importance of metadata</h2>
+<section id="data-splitting-part-3-importance-of-metadata" class="slide level2">
+<h2>Data Splitting Part 3: Importance of metadata</h2>
 <div class="columns">
 <div class="column" style="width:33%;">
 <ul>
@@ -588,8 +586,8 @@ Dr Sebastian Lopez Marcano <a href="https://orcid.org/0000-0002-0814-2906" class
 
 </section></section>
 <section>
-<section id="module-3-training-evaluation-and-predictions" class="title-slide slide level1 center">
-<h1>Module 3: Training, Evaluation, and Predictions</h1>
+<section id="module-3-building-your-model-development-dataset" class="title-slide slide level1 center">
+<h1>Module 3: Building your model development dataset</h1>
 
 </section>
 <section id="recap-steps-with-the-roboflow-sparkle" class="slide level2">
@@ -601,25 +599,26 @@ Dr Sebastian Lopez Marcano <a href="https://orcid.org/0000-0002-0814-2906" class
 <li>Data splitting ✅</li>
 <li><span style="color:purple;">Data upload</span> 👈🏼</li>
 <li><span style="color:purple;">Data annotation</span></li>
-<li><span style="color:purple;">Model training📝</span></li>
-<li><span style="color:purple;">Model evaluation📝</span></li>
-<li><span style="color:purple;">Model inference📝</span></li>
+<li><span style="color:purple;">Building your model development dataset</span></li>
+<li><span style="color:purple;">Model training</span></li>
+<li><span style="color:purple;">Model evaluation</span></li>
+<li><span style="color:purple;">Model inference</span></li>
 <li>Post-processing</li>
 </ul>
 </section>
-<section id="data-upload" class="slide level2">
-<h2>Data upload</h2>
+<section id="data-upload-part-1" class="slide level2">
+<h2>Data upload part 1</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
 <ul>
-<li>Upload images to Roboflow (online)
+<li><span style="color:purple;">Upload images to Roboflow</span>
 <ul>
 <li>Batch Name 🗒️</li>
-<li>Tags 🏷️ ::: {.callout-tip} Roboflow allows you to add similar images using Objects365</li>
+<li>Tags 🏷️</li>
 </ul></li>
+<li>Similar images from Object365</li>
 </ul>
-</div></div>
-<div class="column" style="width:50%;">
+</div><div class="column" style="width:50%;">
 <ul>
 <li>Upload images to Roboflow (Python SDK)</li>
 </ul>
@@ -638,75 +637,255 @@ Dr Sebastian Lopez Marcano <a href="https://orcid.org/0000-0002-0814-2906" class
 <span id="cb1-13"><a href=""></a></span>
 <span id="cb1-14"><a href=""></a><span class="co"># Upload the image to your project</span></span>
 <span id="cb1-15"><a href=""></a>project.upload(<span class="st">"UPLOAD_IMAGE.jpg"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div></section>
+</div></div>
+</section>
+<section id="data-upload-part-2" class="slide level2">
+<h2>Data upload part 2</h2>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Tip</strong></p>
+</div>
+<div class="callout-content">
+<p>Upload images in batches that make sense for your project / later filtering analysis. <strong>My tip</strong>: upload images based on initial data splitting.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Tip</strong></p>
+</div>
+<div class="callout-content">
+<p>Always keep an eye on your limit for <code>source images</code>.</p>
+</div>
+</div>
+</div>
+</section>
 <section id="data-annotation-part-1" class="slide level2">
 <h2>Data annotation part 1</h2>
 
 <img data-src="assets/annotation_types.png" class="r-stretch quarto-figure-center"><p class="caption">Annotation types</p></section>
 <section id="data-annotation-part-2" class="slide level2">
-<h2>## Data annotation part 2</h2>
-</section>
-<section id="performance-metrics" class="slide level2">
-<h2>Performance Metrics</h2>
+<h2>Data annotation part 2</h2>
 <ul>
-<li><strong>Precision / Recall / F1 Score</strong></li>
-<li><strong>Mean Average Precision (mAP50)</strong></li>
-<li><strong>False Positives / False Negatives</strong></li>
+<li><span style="color:purple;">Labelling images in Roboflow</span>
+<ul>
+<li>Auto Label
+<ul>
+<li>Grounding DINO</li>
+<li>My Models (e.g., MegaDetector or SpeciesNet)
+<ul>
+<li>Roboflow trained models</li>
+<li>Upload via API ⭐️</li>
+</ul></li>
+<li>Importance of confidene threshold when using zero-shot models</li>
+</ul></li>
+<li>Manual Label</li>
+</ul></li>
 </ul>
+</section>
+<section id="data-annotation-part-3" class="slide level2">
+<h2>Data annotation part 3</h2>
+<ul>
+<li><span style="color:purple;">Labelling images in Roboflow</span>
+<ul>
+<li>Auto Label</li>
+<li>Manual Label
+<ul>
+<li>Review (Approve or Reject)</li>
+<li>Manual bbox</li>
+<li>Smart labelling</li>
+<li>Bounding box prompting</li>
+</ul></li>
+</ul></li>
+</ul>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Tip</strong></p>
+</div>
+<div class="callout-content">
+<p>Label every relevant object in every image, even if it’s partially visible - Roboflow</p>
+</div>
+</div>
+</div>
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Important</strong></p>
+</div>
+<div class="callout-content">
+<p>You can always import labels from other tools / models / projects for images into Roboflow</p>
+</div>
+</div>
+</div>
+</section>
+<section id="building-your-model-development-dataset" class="slide level2">
+<h2>Building your model development dataset</h2>
+<ul>
+<li><strong>Training</strong>: Used to train the model - 70% of model development data</li>
+<li><strong>Validation</strong>: Used to tune hyperparameters and prevent overfitting - 10% of model development data</li>
+<li><strong>Evaluation</strong>: Used to assess the model’s performance on unseen data - 20% of data of model development</li>
+</ul>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Tip</strong></p>
+</div>
+<div class="callout-content">
+<p><strong>Reminder</strong>: Upload images in batches that make sense for your project / later filtering analysis. <strong>My tip</strong>: upload images based on initial data splitting.</p>
+</div>
+</div>
+</div>
 </section>
 <section class="slide level2">
 
 </section></section>
 <section>
-<section id="module-4-platforms-for-computer-vision-development" class="title-slide slide level1 center">
-<h1>Module 4: Platforms for Computer Vision Development</h1>
+<section id="module-4-model-training-and-evaluation" class="title-slide slide level1 center">
+<h1>Module 4: Model training and evaluation</h1>
 
 </section>
-<section id="key-platforms" class="slide level2">
-<h2>Key Platforms</h2>
+<section id="recap-steps-with-the-roboflow-sparkle-1" class="slide level2">
+<h2>Recap Steps <em>✨<span style="color:purple;">with the Roboflow sparkle</span>✨</em></h2>
 <ul>
-<li>Cloud-based solutions</li>
-<li>On-premise GPU clusters</li>
-<li>Open-source toolkits</li>
+<li>Objective and infrastructure ✅</li>
+<li>Data collection and pre-processing ✅</li>
+<li><span style="color:purple;">Create account and project</span> ✅</li>
+<li>Data splitting ✅</li>
+<li><span style="color:purple;">Data upload</span> ✅</li>
+<li><span style="color:purple;">Data annotation</span> ✅</li>
+<li><span style="color:purple;">Building your model development dataset</span> ✅</li>
+<li><span style="color:purple;">Model training</span> 👈🏼</li>
+<li><span style="color:purple;">Model evaluation</span></li>
+<li><span style="color:purple;">Model inference</span></li>
+<li>Post-processing</li>
 </ul>
 </section>
-<section id="deployment-considerations" class="slide level2">
-<h2>Deployment Considerations</h2>
+<section id="model-training" class="slide level2">
+<h2><span style="color:purple;">Model training</span></h2>
+<div class="columns">
+<div class="column" style="width:50%;">
 <ul>
-<li>Model hosting</li>
-<li>API integration</li>
-<li>Performance monitoring</li>
+<li>Create a dataset version
+<ul>
+<li>Data augmentation</li>
+<li>Data filtering</li>
+</ul></li>
+<li>Select a model architecture
+<ul>
+<li>Comments around RF-DETR</li>
+</ul></li>
 </ul>
+</div><div class="column" style="width:50%;">
+<h3 id="download-the-dataset-version-python">Download the dataset version (Python)</h3>
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href=""></a><span class="im">from</span> google.colab <span class="im">import</span> userdata</span>
+<span id="cb2-2"><a href=""></a><span class="im">from</span> roboflow <span class="im">import</span> Roboflow</span>
+<span id="cb2-3"><a href=""></a></span>
+<span id="cb2-4"><a href=""></a>ROBOFLOW_API_KEY <span class="op">=</span> userdata.get(<span class="st">'ROBOFLOW_API_KEY'</span>)</span>
+<span id="cb2-5"><a href=""></a></span>
+<span id="cb2-6"><a href=""></a>rf <span class="op">=</span> Roboflow(api_key<span class="op">=</span>ROBOFLOW_API_KEY)</span>
+<span id="cb2-7"><a href=""></a>project <span class="op">=</span> rf.workspace(<span class="st">"selencakmak"</span>).project(<span class="st">"tumor-dj2a1"</span>)</span>
+<span id="cb2-8"><a href=""></a>version <span class="op">=</span> project.version(<span class="dv">1</span>)</span>
+<span id="cb2-9"><a href=""></a>dataset <span class="op">=</span> version.download(<span class="st">"yolov8"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<h3 id="train-the-model-cli">Train the model (CLI)</h3>
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource cli number-lines code-with-copy"><code class="sourceCode"><span id="cb3-1"><a href=""></a>!yolo task=detect mode=train epochs=10 batch=32 plots=True \</span>
+<span id="cb3-2"><a href=""></a>model={HOME}/weights/yolov10n.pt \</span>
+<span id="cb3-3"><a href=""></a>data={dataset.location}/data.yaml</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></div>
+</section>
+<section id="model-validation---evaluation" class="slide level2">
+<h2>Model validation - evaluation</h2>
+<ul>
+<li>Two different things</li>
+<li><strong>Validation</strong>: Assess the model’s performance on the validation set during training
+<ul>
+<li>Monitor metrics like loss and accuracy</li>
+<li>Adjust hyperparameters to improve performance</li>
+</ul></li>
+<li><strong>Evaluation</strong>: Assess the model’s performance on the evaluation set after training</li>
+</ul>
+</section>
+<section id="model-validation-and-evaluation---metrics" class="slide level2">
+<h2>Model validation and evaluation - metrics</h2>
+<ul>
+<li><strong>Precision</strong>: The ratio of true positive predictions to the total predicted positives</li>
+<li><strong>Recall</strong>: The ratio of true positive predictions to the total actual positives</li>
+<li><strong>F1 Score</strong>: The harmonic mean of precision and recall</li>
+</ul>
+</section>
+<section id="understanding-validation-and-evaluation-results" class="slide level2">
+<h2>Understanding validation and evaluation results</h2>
+<ul>
+<li>Lets review these outputs in Roboflow :::: {.callout-note} We will not be able to cover how to review these metrics in a programmatic environment :::</li>
+</ul>
+</section></section>
+<section>
+<section id="module-5-model-inference" class="title-slide slide level1 center">
+<h1>Module 5: Model inference</h1>
+
+</section>
+<section id="recap-steps-with-the-roboflow-sparkle-2" class="slide level2">
+<h2>Recap Steps <em>✨<span style="color:purple;">with the Roboflow sparkle</span>✨</em></h2>
+<ul>
+<li>Objective and infrastructure ✅</li>
+<li>Data collection and pre-processing ✅</li>
+<li><span style="color:purple;">Create account and project</span> ✅</li>
+<li>Data splitting ✅</li>
+<li><span style="color:purple;">Data upload</span> ✅</li>
+<li><span style="color:purple;">Data annotation</span> ✅</li>
+<li><span style="color:purple;">Building your model development dataset</span> ✅</li>
+<li><span style="color:purple;">Model training</span> ✅</li>
+<li><span style="color:purple;">Model evaluation</span> ✅</li>
+<li><span style="color:purple;">Model inference</span> 👈🏼</li>
+<li>Post-processing</li>
+</ul>
+</section>
+<section id="model-inference" class="slide level2">
+<h2><span style="color:purple;">Model inference</span></h2>
+<ul>
+<li><strong>Inference</strong>: The process of using a trained model to make predictions on new, unseen data</li>
+<li>Let’s use th Deployments tab in Roboflow to deploy our model</li>
+</ul>
+</section>
+<section id="post-processing" class="slide level2">
+<h2>Post-processing</h2>
+<ul>
+<li>Not going to go in depth here</li>
+<li>Confidence threshold</li>
+<li>Non-max suppression</li>
+</ul>
+</section>
+<section id="example-computer-vision-dataset" class="slide level2">
+<h2>Example Computer Vision Dataset</h2>
+<p>Below is an example of a classic computer vision dataset structure: | Filename | Class | xmin | xmax | ymin | ymax | Confidence | |————–|——-|——|——|——|——|————| | image1.jpg | kangaroo | 50 | 150 | 60 | 160 | 0.95 | | image2.jpg | possum | 30 | 130 | 40 | 140 | 0.20 | | image3.jpg | bird | 100 | 200 | 120 | 220 | 0.92 | | image4.jpg | cat | 70 | 170 | 80 | 180 | 0.97 | | image5.jpg | dog | 20 | 120 | 30 | 130 | 0.85 | | image6.jpg | bird | 90 | 190 | 110 | 210 | 0.90 |</p>
 </section>
 <section class="slide level2">
 
 </section></section>
 <section>
-<section id="post-processing-techniques" class="title-slide slide level1 center">
-<h1>Post-processing Techniques</h1>
+<section id="module-6-roboflow-workflows" class="title-slide slide level1 center">
+<h1>Module 6: Roboflow workflows</h1>
 
 </section>
-<section id="confidence-thresholding" class="slide level2">
-<h2>Confidence Thresholding</h2>
-<ul>
-<li>Filter detections based on confidence scores</li>
-<li>Class-specific filtering</li>
-</ul>
-</section>
-<section id="tracking-and-non-maximum-suppression-nms" class="slide level2">
-<h2>Tracking and Non-Maximum Suppression (NMS)</h2>
-<ul>
-<li>Reduce redundant detections</li>
-<li>Maintain object identity across frames</li>
-</ul>
-</section>
-<section id="data-outputs" class="slide level2">
-<h2>Data Outputs</h2>
-<ul>
-<li>Object counts</li>
-<li>Visualisations (heatmaps, tracking paths)</li>
-<li>Statistical summaries &amp; reports</li>
-</ul>
+<section id="workflows-to-assist-development" class="slide level2">
+<h2>Workflows to assist development</h2>
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">
 

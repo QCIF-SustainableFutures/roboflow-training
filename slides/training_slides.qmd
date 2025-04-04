@@ -11,6 +11,7 @@ author:
     affiliations: QCIF
 date: last-modified
 ---
+
 # Introduction to Computer Vision Workflows
 
 ## Modules Overview
@@ -19,9 +20,11 @@ date: last-modified
 - **Module 2**: Understanding the computer vision workflow
 - **Module 3**: Building your model development dataset
 - **Module 4**: Model training and evaluation
-- **Module 5**: Model inference and post-processing
+- **Module 5**: Model inference
+- **Module 6**: Roboflow workflows
 
 ---
+
 # Module 1: AI - DL - CV
 :::: {.columns}
 
@@ -56,9 +59,9 @@ date: last-modified
 - <span style="color:purple;">Data upload</span>
 - <span style="color:purple;">Data annotation</span>
 - <span style="color:purple;">Building your model development dataset</span>
-- <span style="color:purple;">Model training📝</span>
-- <span style="color:purple;">Model evaluation📝</span>
-- <span style="color:purple;">Model inference📝</span> 
+- <span style="color:purple;">Model training</span>
+- <span style="color:purple;">Model evaluation</span>
+- <span style="color:purple;">Model inference</span> 
 - Post-processing
 
 ## Objective and Infrastructure
@@ -117,6 +120,7 @@ In Roboflow, you will have to split your dataset into training, validation and e
 ::::
 
 ---
+
 # Module 3: Building your model development dataset
 
 ## Recap Steps *✨<span style="color:purple;">with the Roboflow sparkle</span>✨*
@@ -128,9 +132,9 @@ In Roboflow, you will have to split your dataset into training, validation and e
 - <span style="color:purple;">Data upload</span> 👈🏼
 - <span style="color:purple;">Data annotation</span>
 - <span style="color:purple;">Building your model development dataset</span>
-- <span style="color:purple;">Model training📝</span>
-- <span style="color:purple;">Model evaluation📝</span>
-- <span style="color:purple;">Model inference📝</span> 
+- <span style="color:purple;">Model training</span>
+- <span style="color:purple;">Model evaluation</span>
+- <span style="color:purple;">Model inference</span> 
 - Post-processing
 
 ## Data upload part 1
@@ -214,6 +218,7 @@ You can always import labels from other tools / models / projects for images int
 :::
 
 ---
+
 # Module 4: Model training and evaluation
 
 ## Recap Steps *✨<span style="color:purple;">with the Roboflow sparkle</span>✨*
@@ -224,15 +229,14 @@ You can always import labels from other tools / models / projects for images int
 - <span style="color:purple;">Data upload</span> ✅
 - <span style="color:purple;">Data annotation</span> ✅
 - <span style="color:purple;">Building your model development dataset</span> ✅
-- <span style="color:purple;">Model training📝</span> 👈🏼
-- <span style="color:purple;">Model evaluation📝</span>
-- <span style="color:purple;">Model inference📝</span> 
+- <span style="color:purple;">Model training</span> 👈🏼
+- <span style="color:purple;">Model evaluation</span>
+- <span style="color:purple;">Model inference</span> 
 - Post-processing
 
-## <span style="color:purple;">Model training📝</span>
+## <span style="color:purple;">Model training</span>
 
-::::
-::: {.columns}
+::::{.columns}
 ::: {.column width="50%"}
 - Create a dataset version
   - Data augmentation
@@ -241,7 +245,7 @@ You can always import labels from other tools / models / projects for images int
   - Comments around RF-DETR
 :::
 ::: {.column width="50%"}
-### Training a YOLOv10 model
+### Download the dataset version (Python)
 ```{.python}
 from google.colab import userdata
 from roboflow import Roboflow
@@ -253,37 +257,71 @@ project = rf.workspace("selencakmak").project("tumor-dj2a1")
 version = project.version(1)
 dataset = version.download("yolov8")
 ```
+### Train the model (CLI)
 ```{.cli}
 !yolo task=detect mode=train epochs=10 batch=32 plots=True \
 model={HOME}/weights/yolov10n.pt \
 data={dataset.location}/data.yaml
 ```
+:::
+::::
+
+## Model validation - evaluation
+- Two different things
+- **Validation**: Assess the model's performance on the validation set during training
+  - Monitor metrics like loss and accuracy
+  - Adjust hyperparameters to improve performance
+- **Evaluation**: Assess the model's performance on the evaluation set after training
+
+## Model validation and evaluation - metrics
+- **Precision**: The ratio of true positive predictions to the total predicted positives
+- **Recall**: The ratio of true positive predictions to the total actual positives
+- **F1 Score**: The harmonic mean of precision and recall
+
+## Understanding validation and evaluation results
+- Lets review these outputs in Roboflow
+
+::: {.callout-note}
+We will not be able to cover how to review these metrics in a programmatic environment
+:::
+
+# Module 5: Model inference
+## Recap Steps *✨<span style="color:purple;">with the Roboflow sparkle</span>✨*
+- Objective and infrastructure ✅
+- Data collection and pre-processing ✅
+- <span style="color:purple;">Create account and project</span> ✅
+- Data splitting ✅
+- <span style="color:purple;">Data upload</span> ✅
+- <span style="color:purple;">Data annotation</span> ✅
+- <span style="color:purple;">Building your model development dataset</span> ✅
+- <span style="color:purple;">Model training</span> ✅
+- <span style="color:purple;">Model evaluation</span> ✅
+- <span style="color:purple;">Model inference</span> 👈🏼
+- Post-processing
+
+## <span style="color:purple;">Model inference</span>
+- **Inference**: The process of using a trained model to make predictions on new, unseen data
+- Let's use the Deployments tab in Roboflow to deploy our model
+
+## Post-processing
+- Not going to go in depth here
+- Confidence threshold
+- Non-max suppression
+
+## Example Computer Vision Dataset
+
+Below is an example of a classic computer vision dataset structure:
+```plaintext
+| Filename     | Class | xmin | xmax | ymin | ymax | Confidence |
+|--------------|-------|------|------|------|------|------------|
+| image1.jpg   | kangaroo   | 50   | 150  | 60   | 160  | 0.95       |
+| image2.jpg   | possum  | 30   | 130  | 40   | 140  | 0.20       |
+| image3.jpg   | bird  | 100  | 200  | 120  | 220  | 0.92       |
+| image4.jpg   | cat   | 70   | 170  | 80   | 180  | 0.97       |
+| image5.jpg   | dog   | 20   | 120  | 30   | 130  | 0.85       |
+| image6.jpg   | bird  | 90   | 190  | 110  | 210  | 0.90       |
+```
 
 
-
-
-## Performance Metrics
-
-- **Precision / Recall / F1 Score**
-- **Mean Average Precision (mAP50)**
-- **False Positives / False Negatives**
-
-
-
-# Post-processing Techniques
-
-## Confidence Thresholding
-
-- Filter detections based on confidence scores
-- Class-specific filtering
-
-## Tracking and Non-Maximum Suppression (NMS)
-
-- Reduce redundant detections
-- Maintain object identity across frames
-
-## Data Outputs
-
-- Object counts
-- Visualisations (heatmaps, tracking paths)
-- Statistical summaries & reports
+# Module 6: Roboflow workflows
+## Workflows to assist development
