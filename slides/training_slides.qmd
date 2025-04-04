@@ -1,0 +1,289 @@
+---
+title: "A Masterclass on Roboflow and Computer Vision"
+format: clean-revealjs
+html-math-method:
+  method: mathjax
+  url: "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+author:
+  - name: Dr Sebastian Lopez Marcano
+    orcid: 0000-0002-0814-2906
+    email: s.lopezmarcano@qcif.edu.au
+    affiliations: QCIF
+date: last-modified
+---
+# Introduction to Computer Vision Workflows
+
+## Modules Overview
+
+- **Module 1**: AI, Deep Learning, and Computer Vision
+- **Module 2**: Understanding the computer vision workflow
+- **Module 3**: Building your model development dataset
+- **Module 4**: Model training and evaluation
+- **Module 5**: Model inference and post-processing
+
+---
+# Module 1: AI - DL - CV
+:::: {.columns}
+
+::: {.column width="40%"}
+!["Deep Learning Diagram"](assets/1-s2.0-S0886779820306313-gr4.jpg)
+:::
+
+::: {.column width="60%"}
+**What is Deep Learning?**
+- A subset of Machine Learning to train neural networks and make predictions
+
+**What is Computer Vision?**
+- A field of AI that enables computers to interpret and understand visual information
+- Key applications: classification, object detection and segmentation
+:::
+
+::::
+
+## Computer vision tasks
+- **Image Classification**: Assigns a label to an entire image (e.g., "cat", "dog")
+- **Object Detection**: Identifies and localizes multiple objects within an image (e.g., "cat" at (x,y) coordinates, "dog" at (x,y) coordinates)
+
+## Image Classification vs Object Detection
+![](assets/img-classification_detection.png)
+
+# Module 2: Understanding the computer vision workflow
+## Key Steps *✨<span style="color:purple;">with the Roboflow sparkle</span>✨*
+- Objective and infrastructure
+- Data collection and pre-processing
+- <span style="color:purple;">Create account and project</span>
+- Data splitting
+- <span style="color:purple;">Data upload</span>
+- <span style="color:purple;">Data annotation</span>
+- <span style="color:purple;">Building your model development dataset</span>
+- <span style="color:purple;">Model training📝</span>
+- <span style="color:purple;">Model evaluation📝</span>
+- <span style="color:purple;">Model inference📝</span> 
+- Post-processing
+
+## Objective and Infrastructure
+- **Objective**: Define the problem you want to solve (e.g., species identification, behavior analysis)
+  - How many classes?
+  - What is the expected accuracy?
+  - What is the long-term goal? 
+- **Infrastructure**: Determine the hardware and software requirements for your project
+  - GPU/CPU requirements
+  - Storage capacity
+
+## Data collection and pre-processing
+- **Data Collection**: Gathering images from various sources (e.g., camera trap deployment, public datasets, web scraping)
+- **Data Pre-processing**: Cleaning and preparing data for further analysis
+  - Rename files 
+  - Move files to appropriate folders
+
+## <span style="color:purple;">Create account and project</span>
+- Create a Roboflow account
+- Create a new project
+
+## Data Splitting Part 1
+- Model development dataset (e.g., training, validation, evaluation)
+- Inference dataset
+
+Depending on the dataset size, model development can be between 10-20% of the total dataset.
+
+## Data Splitting Part 2 : Broad types of data selection
+- General Computer Vision: Random selection
+- Environmental Computer Vision: Targeted selection
+
+::: {.callout-tip}
+The higher the variability in the model development dataset, the better the model will perform in the field.
+:::
+
+::: {.callout-important}
+The data splitting process is crucial and takes time. 
+::: 
+
+::: {.callout-important}
+In Roboflow, you will have to split your dataset into training, validation and evaluation sets
+:::
+
+## Data Splitting Part 3: Importance of metadata
+
+:::: {.columns}
+::: {.column width="33%"}
+- Model trained on images from 🏖️ will not be accurate when applied to 🏞️
+:::
+::: {.column width="33%"}
+- Model trained on images collected during ☀️ hours will not be accurate when applied to images collected at 🌝
+:::
+::: {.column width="33%"}
+- For a single location, a model trained on images collected in `year 1` will not be *accurate* when applied to images collected in `year 2`
+:::
+::::
+
+---
+# Module 3: Building your model development dataset
+
+## Recap Steps *✨<span style="color:purple;">with the Roboflow sparkle</span>✨*
+
+- Objective and infrastructure ✅
+- Data collection and pre-processing ✅
+- <span style="color:purple;">Create account and project</span> ✅
+- Data splitting ✅
+- <span style="color:purple;">Data upload</span> 👈🏼
+- <span style="color:purple;">Data annotation</span>
+- <span style="color:purple;">Building your model development dataset</span>
+- <span style="color:purple;">Model training📝</span>
+- <span style="color:purple;">Model evaluation📝</span>
+- <span style="color:purple;">Model inference📝</span> 
+- Post-processing
+
+## Data upload part 1
+:::: {.columns}
+::: {.column width="50%"}
+- <span style="color:purple;">Upload images to Roboflow</span>
+   - Batch Name 🗒️ 
+   - Tags 🏷️
+- Similar images from Object365
+:::
+::: {.column width="50%"}
+- Upload images to Roboflow (Python SDK)
+
+```{.python}
+from roboflow import Roboflow
+
+# Initialize the Roboflow object with your API key
+rf = Roboflow(api_key="YOUR_PRIVATE_API_KEY")
+
+# Retrieve your current workspace and project name
+print(rf.workspace())
+
+# Project:https://app.roboflow.com/my-workspace/my-project
+workspaceId = 'my-workspace'
+projectId = 'my-project'
+project = rf.workspace(workspaceId).project(projectId)
+
+# Upload the image to your project
+project.upload("UPLOAD_IMAGE.jpg")
+```
+:::
+::::
+
+## Data upload part 2
+::: {.callout-tip}
+Upload images in batches that make sense for your project / later filtering analysis. **My tip**: upload images based on initial data splitting. 
+:::
+
+::: {.callout-tip}
+Always keep an eye on your limit for `source images`. 
+::: 
+
+## Data annotation part 1
+![Annotation types](assets/annotation_types.png)
+
+## Data annotation part 2
+- <span style="color:purple;">Labelling images in Roboflow</span>
+  - Auto Label
+    - Grounding DINO
+    - My Models (e.g., MegaDetector or SpeciesNet)
+        - Roboflow trained models
+        - Upload via API ⭐️
+    - Importance of confidene threshold when using zero-shot models
+  - Manual Label
+
+## Data annotation part 3
+- <span style="color:purple;">Labelling images in Roboflow</span>
+  - Auto Label
+  - Manual Label
+    - Review (Approve or Reject)
+    - Manual bbox
+    - Smart labelling
+    - Bounding box prompting
+
+:::{.callout-tip}
+Label every relevant object in every image, even if it’s partially visible - Roboflow
+:::
+
+:::{.callout-important}
+You can always import labels from other tools / models / projects for images into Roboflow
+:::
+
+
+## Building your model development dataset
+- **Training**: Used to train the model - 70% of model development data
+- **Validation**: Used to tune hyperparameters and prevent overfitting - 10% of model development data
+- **Evaluation**: Used to assess the model's performance on unseen data - 20% of data of model development
+
+::: {.callout-tip}
+**Reminder**: Upload images in batches that make sense for your project / later filtering analysis. **My tip**: upload images based on initial data splitting. 
+:::
+
+---
+# Module 4: Model training and evaluation
+
+## Recap Steps *✨<span style="color:purple;">with the Roboflow sparkle</span>✨*
+- Objective and infrastructure ✅
+- Data collection and pre-processing ✅
+- <span style="color:purple;">Create account and project</span> ✅
+- Data splitting ✅
+- <span style="color:purple;">Data upload</span> ✅
+- <span style="color:purple;">Data annotation</span> ✅
+- <span style="color:purple;">Building your model development dataset</span> ✅
+- <span style="color:purple;">Model training📝</span> 👈🏼
+- <span style="color:purple;">Model evaluation📝</span>
+- <span style="color:purple;">Model inference📝</span> 
+- Post-processing
+
+## <span style="color:purple;">Model training📝</span>
+
+::::
+::: {.columns}
+::: {.column width="50%"}
+- Create a dataset version
+  - Data augmentation
+  - Data filtering
+- Select a model architecture
+  - Comments around RF-DETR
+:::
+::: {.column width="50%"}
+### Training a YOLOv10 model
+```{.python}
+from google.colab import userdata
+from roboflow import Roboflow
+
+ROBOFLOW_API_KEY = userdata.get('ROBOFLOW_API_KEY')
+
+rf = Roboflow(api_key=ROBOFLOW_API_KEY)
+project = rf.workspace("selencakmak").project("tumor-dj2a1")
+version = project.version(1)
+dataset = version.download("yolov8")
+```
+```{.cli}
+!yolo task=detect mode=train epochs=10 batch=32 plots=True \
+model={HOME}/weights/yolov10n.pt \
+data={dataset.location}/data.yaml
+```
+
+
+
+
+## Performance Metrics
+
+- **Precision / Recall / F1 Score**
+- **Mean Average Precision (mAP50)**
+- **False Positives / False Negatives**
+
+
+
+# Post-processing Techniques
+
+## Confidence Thresholding
+
+- Filter detections based on confidence scores
+- Class-specific filtering
+
+## Tracking and Non-Maximum Suppression (NMS)
+
+- Reduce redundant detections
+- Maintain object identity across frames
+
+## Data Outputs
+
+- Object counts
+- Visualisations (heatmaps, tracking paths)
+- Statistical summaries & reports
