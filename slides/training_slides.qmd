@@ -16,11 +16,11 @@ date: last-modified
 
 ## Why this workshop
 - WildObs
-  - A national platform for camera trap monitoring. Supported by many organisations. In development. 2024-2026. 
-  - Primary Objective: Staff training - understand the background of computer vision models that will be used in WildObs. 
+  - A national platform for camera trap monitoring. 
+  - Primary Objective: Staff training - understand computer vision models. 
   - Secondary Objective: WildObs may want to use Roboflow tools (e.g.,Python SDK) for model development and model deployment.
 - DETSI
-  - QCIF is supporting DETSI to develop an -inhouse- computer vision model for key QLD wildlife species. Feb - Sept 2025. PSP Advance Qld project. 
+  - QCIF is supporting DETSI to develop an -inhouse- solution for key QLD wildlife species. PSP Advance Qld project. 
   - Primary Objective: Get familiar with Roboflow and understand the theory behind computer vision models. Roboflow will be used to develop a computer vision model for DETSI.
 
 ::: {.callout-note}
@@ -42,14 +42,16 @@ DETSI will be contributing datasets to WildObs. DETSI intends to use WildObs.
 :::: {.columns}
 
 ::: {.column width="40%"}
-!["Deep Learning Diagram"](assets/1-s2.0-S0886779820306313-gr4.jpg)
+![A visual representation of AI, ML, DL, and CV](assets/1-s2.0-S0886779820306313-gr4.jpg)
 :::
 
 ::: {.column width="60%"}
 **What is Deep Learning?**
+
 - A subset of Machine Learning to train neural networks and make predictions
 
 **What is Computer Vision?**
+
 - A field of AI that enables computers to interpret and understand visual information
 - Key applications: classification, object detection and segmentation
 :::
@@ -60,7 +62,6 @@ DETSI will be contributing datasets to WildObs. DETSI intends to use WildObs.
 - **Image Classification**: Assigns a label to an entire image (e.g., "cat", "dog")
 - **Object Detection**: Identifies and localizes multiple objects within an image (e.g., "cat" at (x,y) coordinates, "dog" at (x,y) coordinates)
 
-## Image Classification vs Object Detection
 ![](assets/img-classification_detection.png)
 
 ## CV tasks in the context of camera trap monitoring
@@ -91,57 +92,59 @@ DETSI will be contributing datasets to WildObs. DETSI intends to use WildObs.
   - GPU/CPU requirements
   - Storage capacity
 
-## Data collection and pre-processing
-- **Data Collection**: Gathering images from various sources (e.g., camera trap deployment, public datasets, web scraping)
+## 🪜Data collection and pre-processing
+- **Data Collection**: Camera traps
 - **Data Pre-processing**: Cleaning and preparing data for further analysis
   - Rename files 
   - Move files to appropriate folders
 
-## <span style="color:purple;">Create account and project</span>
+## <span style="color:purple;"> 🪜Create account and project</span>
+- Let's go to Roboflow!
 - Create a Roboflow account
 - Create a new project
 
-## Data Splitting Part 1
+
+## 🪜 Data Splitting Part 1
 - Now we need data to add into our project
   - Model development dataset (e.g., training, validation, evaluation)
   - Inference dataset
 
+::: {.callout-note}
 Depending on the dataset size, model development can be between 10-20% of the total dataset.
+:::
 
 ## Data Splitting Part 2 : Broad types of data selection
 - General Computer Vision: Random selection
 - Environmental Computer Vision: Targeted selection
-
-::: {.callout-tip}
-The higher the variability in the model development dataset, the better the model will perform in the field.
-:::
 
 ::: {.callout-important}
 The data splitting process is crucial and takes time. 
 ::: 
 
 ::: {.callout-important}
-In Roboflow, you will have to split your dataset into training, validation and evaluation sets
+The model development dataset should be representative of the data that will be processed in the field / future
 :::
 
 ## Data Splitting Part 3: Importance of metadata
 
 :::: {.columns}
 ::: {.column width="33%"}
-- Model trained on images from 🏖️ will not be accurate when applied to 🏞️
+- Model trained on images from 🏖️ will not be accurate when deployed in 🏞️
 :::
 ::: {.column width="33%"}
-- Model trained on images collected during ☀️ hours will not be accurate when applied to images collected at 🌝
+- Model trained on images collected during ☀️ hours will not be accurate when processing images collected at 🌝
 :::
 ::: {.column width="33%"}
-- For a single location, a model trained on images collected in `year 1` will not be *accurate* when applied to images collected in `year 2`
+- For a single location, a model trained on images collected in `year 1` will not be *accurate* when processing images collected in `year 2`
 :::
 ::::
 
 ## Data Splitting Part 4: Relationship between objectives - metadata and data splitting
-- How many classes?
-- How many ecosystems / locations?
-- How many seasons / years?
+- This is why its important to determine your objectives at the beginning of the project 
+- Questions that require answers?
+  - How many classes?
+  - How many ecosystems / locations?
+  - How many seasons / years?
 
 ## Data Splitting Part 4: Relationship between objectives - metadata and data splitting
 - How many classes?
@@ -162,6 +165,34 @@ Let's use a conservative 1,500 images per class
 | Ecosystem 3 | 250    | 250    | 500   |
 | **Total**   | 750    | 750    | 1,500 |
 ```
+
+## Data Splitting Part 5: How many images do I need?
+![](assets/medium_guidelines_modeldevelopment.png){width=30%}
+
+<span style="font-size:small;">https://joelnadarai.medium.com/the-art-of-choosing-the-right-number-of-images-for-your-computer-vision-project-6e45efd1efbf#:~:text=For%20fine%2Dtuning%20pre%2Dtrained,per%20class%20for%20detection%20tasks.</span> 
+
+## Data Splitting Part 6: What to do with class imbalance?
+- **Class imbalance**: When one class has significantly more images than another
+- **Solutions**:
+  - Merging classes
+  - Data augmentation
+  - Data filtering
+  - Data collection
+
+```markdown
+| Class         | Number of Images | Notes                              |
+|---------------|------------------|------------------------------------|
+| Kangaroo      | 1,200            | Overrepresented                   |
+| Koala         | 300              | Underrepresented                  |
+| Emu           | 150              | Severely underrepresented          |
+| Wombat        | 800              | Moderately represented            |
+| Possum        | 100              | Severely underrepresented          |
+| Dingo         | 600              | Balanced                          |
+| Echidna       | 50               | Rarely detected                   |
+| Cockatoo      | 1,000            | Overrepresented                   |
+| Platypus      | 20               | Extremely rare                    |
+| Wallaby       | 700              | Balanced                          |
+```
 ---
 
 # Module 3: Building your model development dataset
@@ -180,7 +211,7 @@ Let's use a conservative 1,500 images per class
 - <span style="color:purple;">Model inference</span> 
 - Post-processing
 
-## Data upload part 1
+## 🪜 Data upload part 1
 :::: {.columns}
 ::: {.column width="50%"}
 - <span style="color:purple;">Upload images to Roboflow</span>
@@ -220,7 +251,7 @@ Upload images in batches that make sense for your project / later filtering anal
 Always keep an eye on your limit for `source images`. 
 ::: 
 
-## Data annotation part 1
+## 🪜 Data annotation part 1
 ![Annotation types](assets/annotation_types.png)
 
 ## Data annotation part 2
@@ -251,7 +282,7 @@ You can always import labels from other tools / models / projects for images int
 :::
 
 
-## Building your model development dataset
+## 🪜 Building your model development dataset
 - **Training**: Used to train the model - 70% of model development data
 - **Validation**: Used to tune hyperparameters and prevent overfitting - 10% of model development data
 - **Evaluation**: Used to assess the model's performance on unseen data - 20% of data of model development
@@ -277,7 +308,7 @@ You can always import labels from other tools / models / projects for images int
 - <span style="color:purple;">Model inference</span> 
 - Post-processing
 
-## <span style="color:purple;">Model training</span>
+## <span style="color:purple;">🪜Model training</span>
 
 ::::{.columns}
 ::: {.column width="50%"}
@@ -309,7 +340,7 @@ data={dataset.location}/data.yaml
 :::
 ::::
 
-## Model validation - evaluation
+## 🪜Model validation - evaluation
 - Two different things
 - **Validation**: Assess the model's performance on the validation set during training
   - Monitor metrics like loss and accuracy
@@ -342,11 +373,11 @@ We will not be able to cover how to review these metrics in a programmatic envir
 - <span style="color:purple;">Model inference</span> 👈🏼
 - Post-processing
 
-## <span style="color:purple;">Model inference</span>
+## <span style="color:purple;">🪜Model inference</span>
 - **Inference**: The process of using a trained model to make predictions on new, unseen data
 - Let's use the Deployments tab in Roboflow to deploy our model
 
-## Post-processing
+## 🪜Post-processing
 - Not going to go in depth here
 - Confidence threshold
 - Non-max suppression

@@ -420,13 +420,13 @@ Dr Sebastian Lopez Marcano <a href="https://orcid.org/0000-0002-0814-2906" class
 <ul>
 <li>WildObs
 <ul>
-<li>A national platform for camera trap monitoring. Supported by many organisations. In development. 2024-2026.</li>
-<li>Primary Objective: Staff training - understand the background of computer vision models that will be used in WildObs.</li>
+<li>A national platform for camera trap monitoring.</li>
+<li>Primary Objective: Staff training - understand computer vision models.</li>
 <li>Secondary Objective: WildObs may want to use Roboflow tools (e.g.,Python SDK) for model development and model deployment.</li>
 </ul></li>
 <li>DETSI
 <ul>
-<li>QCIF is supporting DETSI to develop an -inhouse- computer vision model for key QLD wildlife species. Feb - Sept 2025. PSP Advance Qld project.</li>
+<li>QCIF is supporting DETSI to develop an -inhouse- solution for key QLD wildlife species. PSP Advance Qld project.</li>
 <li>Primary Objective: Get familiar with Roboflow and understand the theory behind computer vision models. Roboflow will be used to develop a computer vision model for DETSI.</li>
 </ul></li>
 </ul>
@@ -466,12 +466,19 @@ Dr Sebastian Lopez Marcano <a href="https://orcid.org/0000-0002-0814-2906" class
 <div class="quarto-figure quarto-figure-center">
 <figure>
 <p><img data-src="assets/1-s2.0-S0886779820306313-gr4.jpg"></p>
-<figcaption>“Deep Learning Diagram”</figcaption>
+<figcaption>A visual representation of AI, ML, DL, and CV</figcaption>
 </figure>
 </div>
 </div><div class="column" style="width:60%;">
-<p><strong>What is Deep Learning?</strong> - A subset of Machine Learning to train neural networks and make predictions</p>
-<p><strong>What is Computer Vision?</strong> - A field of AI that enables computers to interpret and understand visual information - Key applications: classification, object detection and segmentation</p>
+<p><strong>What is Deep Learning?</strong></p>
+<ul>
+<li>A subset of Machine Learning to train neural networks and make predictions</li>
+</ul>
+<p><strong>What is Computer Vision?</strong></p>
+<ul>
+<li>A field of AI that enables computers to interpret and understand visual information</li>
+<li>Key applications: classification, object detection and segmentation</li>
+</ul>
 </div></div>
 </section>
 <section id="computer-vision-tasks" class="slide level2">
@@ -480,9 +487,6 @@ Dr Sebastian Lopez Marcano <a href="https://orcid.org/0000-0002-0814-2906" class
 <li><strong>Image Classification</strong>: Assigns a label to an entire image (e.g., “cat”, “dog”)</li>
 <li><strong>Object Detection</strong>: Identifies and localizes multiple objects within an image (e.g., “cat” at (x,y) coordinates, “dog” at (x,y) coordinates)</li>
 </ul>
-</section>
-<section id="image-classification-vs-object-detection" class="slide level2">
-<h2>Image Classification vs Object Detection</h2>
 
 <img data-src="assets/img-classification_detection.png" class="r-stretch"></section>
 <section id="cv-tasks-in-the-context-of-camera-trap-monitoring" class="slide level2">
@@ -530,7 +534,7 @@ Dr Sebastian Lopez Marcano <a href="https://orcid.org/0000-0002-0814-2906" class
 </ul>
 </section>
 <section id="data-collection-and-pre-processing" class="slide level2">
-<h2>Data collection and pre-processing</h2>
+<h2>🪜Data collection and pre-processing</h2>
 <ul>
 <li><strong>Data Collection</strong>: Gathering images from various sources (e.g., camera trap deployment, public datasets, web scraping)</li>
 <li><strong>Data Pre-processing</strong>: Cleaning and preparing data for further analysis
@@ -541,14 +545,15 @@ Dr Sebastian Lopez Marcano <a href="https://orcid.org/0000-0002-0814-2906" class
 </ul>
 </section>
 <section id="create-account-and-project" class="slide level2">
-<h2><span style="color:purple;">Create account and project</span></h2>
+<h2><span style="color:purple;"> 🪜Create account and project</span></h2>
 <ul>
 <li>Create a Roboflow account</li>
 <li>Create a new project</li>
 </ul>
-</section>
+
+<img data-src="assets/roboflow_click_prompt.png" style="width:20.0%" class="r-stretch"></section>
 <section id="data-splitting-part-1" class="slide level2">
-<h2>Data Splitting Part 1</h2>
+<h2>🪜 Data Splitting Part 1</h2>
 <ul>
 <li>Now we need data to add into our project
 <ul>
@@ -599,7 +604,7 @@ Dr Sebastian Lopez Marcano <a href="https://orcid.org/0000-0002-0814-2906" class
 <p><strong>Important</strong></p>
 </div>
 <div class="callout-content">
-<p>In Roboflow, you will have to split your dataset into training, validation and evaluation sets</p>
+<p>The model development dataset should be representative of the data that will be processed in the field / future</p>
 </div>
 </div>
 </div>
@@ -665,6 +670,11 @@ Dr Sebastian Lopez Marcano <a href="https://orcid.org/0000-0002-0814-2906" class
 <span id="cb1-5"><a href=""></a>| Ecosystem 3 | 250    | 250    | 500   |</span>
 <span id="cb1-6"><a href=""></a>| **Total**   | 750    | 750    | 1,500 |</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
+<section id="data-splitting-part-5-how-many-images-do-i-need" class="slide level2">
+<h2>Data Splitting Part 5: How many images do I need?</h2>
+
+<img data-src="assets/medium_guidelines_modeldevelopment.png" style="width:30.0%" class="r-stretch"><p><span style="font-size:small;">https://joelnadarai.medium.com/the-art-of-choosing-the-right-number-of-images-for-your-computer-vision-project-6e45efd1efbf#:~:text=For%20fine%2Dtuning%20pre%2Dtrained,per%20class%20for%20detection%20tasks.</span></p>
+</section>
 <section class="slide level2">
 
 </section></section>
@@ -690,7 +700,7 @@ Dr Sebastian Lopez Marcano <a href="https://orcid.org/0000-0002-0814-2906" class
 </ul>
 </section>
 <section id="data-upload-part-1" class="slide level2">
-<h2>Data upload part 1</h2>
+<h2>🪜 Data upload part 1</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
 <ul>
@@ -752,7 +762,7 @@ Dr Sebastian Lopez Marcano <a href="https://orcid.org/0000-0002-0814-2906" class
 </div>
 </section>
 <section id="data-annotation-part-1" class="slide level2">
-<h2>Data annotation part 1</h2>
+<h2>🪜 Data annotation part 1</h2>
 
 <img data-src="assets/annotation_types.png" class="r-stretch quarto-figure-center"><p class="caption">Annotation types</p></section>
 <section id="data-annotation-part-2" class="slide level2">
@@ -817,7 +827,7 @@ Dr Sebastian Lopez Marcano <a href="https://orcid.org/0000-0002-0814-2906" class
 </div>
 </section>
 <section id="building-your-model-development-dataset" class="slide level2">
-<h2>Building your model development dataset</h2>
+<h2>🪜 Building your model development dataset</h2>
 <ul>
 <li><strong>Training</strong>: Used to train the model - 70% of model development data</li>
 <li><strong>Validation</strong>: Used to tune hyperparameters and prevent overfitting - 10% of model development data</li>
@@ -862,7 +872,7 @@ Dr Sebastian Lopez Marcano <a href="https://orcid.org/0000-0002-0814-2906" class
 </ul>
 </section>
 <section id="model-training" class="slide level2">
-<h2><span style="color:purple;">Model training</span></h2>
+<h2><span style="color:purple;">🪜Model training</span></h2>
 <div class="columns">
 <div class="column" style="width:50%;">
 <ul>
@@ -894,7 +904,7 @@ Dr Sebastian Lopez Marcano <a href="https://orcid.org/0000-0002-0814-2906" class
 </div></div>
 </section>
 <section id="model-validation---evaluation" class="slide level2">
-<h2>Model validation - evaluation</h2>
+<h2>🪜Model validation - evaluation</h2>
 <ul>
 <li>Two different things</li>
 <li><strong>Validation</strong>: Assess the model’s performance on the validation set during training
@@ -954,14 +964,14 @@ Dr Sebastian Lopez Marcano <a href="https://orcid.org/0000-0002-0814-2906" class
 </ul>
 </section>
 <section id="model-inference" class="slide level2">
-<h2><span style="color:purple;">Model inference</span></h2>
+<h2><span style="color:purple;">🪜Model inference</span></h2>
 <ul>
 <li><strong>Inference</strong>: The process of using a trained model to make predictions on new, unseen data</li>
 <li>Let’s use the Deployments tab in Roboflow to deploy our model</li>
 </ul>
 </section>
 <section id="post-processing" class="slide level2">
-<h2>Post-processing</h2>
+<h2>🪜Post-processing</h2>
 <ul>
 <li>Not going to go in depth here</li>
 <li>Confidence threshold</li>
@@ -971,14 +981,14 @@ Dr Sebastian Lopez Marcano <a href="https://orcid.org/0000-0002-0814-2906" class
 <section id="example-computer-vision-dataset" class="slide level2">
 <h2>Example Computer Vision Dataset</h2>
 <p>Below is an example of a classic computer vision dataset structure:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource plaintext number-lines code-with-copy"><code class="sourceCode"><span id="cb5-1"><a href=""></a>| Filename     | Class | xmin | xmax | ymin | ymax | Confidence |</span>
-<span id="cb5-2"><a href=""></a>|--------------|-------|------|------|------|------|------------|</span>
+<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb5-1"><a href=""></a>| Filename     | Class      | xmin | xmax | ymin | ymax | Confidence |</span>
+<span id="cb5-2"><a href=""></a>|--------------|------------|------|------|------|------|------------|</span>
 <span id="cb5-3"><a href=""></a>| image1.jpg   | kangaroo   | 50   | 150  | 60   | 160  | 0.95       |</span>
-<span id="cb5-4"><a href=""></a>| image2.jpg   | possum  | 30   | 130  | 40   | 140  | 0.20       |</span>
-<span id="cb5-5"><a href=""></a>| image3.jpg   | bird  | 100  | 200  | 120  | 220  | 0.92       |</span>
-<span id="cb5-6"><a href=""></a>| image4.jpg   | cat   | 70   | 170  | 80   | 180  | 0.97       |</span>
-<span id="cb5-7"><a href=""></a>| image5.jpg   | dog   | 20   | 120  | 30   | 130  | 0.85       |</span>
-<span id="cb5-8"><a href=""></a>| image6.jpg   | bird  | 90   | 190  | 110  | 210  | 0.90       |</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-4"><a href=""></a>| image2.jpg   | possum     | 30   | 130  | 40   | 140  | 0.20       |</span>
+<span id="cb5-5"><a href=""></a>| image3.jpg   | bird       | 100  | 200  | 120  | 220  | 0.92       |</span>
+<span id="cb5-6"><a href=""></a>| image4.jpg   | cat        | 70   | 170  | 80   | 180  | 0.97       |</span>
+<span id="cb5-7"><a href=""></a>| image5.jpg   | dog        | 20   | 120  | 30   | 130  | 0.85       |</span>
+<span id="cb5-8"><a href=""></a>| image6.jpg   | bird       | 90   | 190  | 110  | 210  | 0.90       |</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section></section>
 <section>
 <section id="module-6-roboflow-workflows" class="title-slide slide level1 center">
