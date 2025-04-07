@@ -316,7 +316,7 @@ Remember this is for 1 class
 | Ecosystem 1 | 175            | 175            | 25           | 25           | 50            | 50            | 500   |
 | Ecosystem 2 | 175            | 175            | 25           | 25           | 50            | 50            | 500   |
 | Ecosystem 3 | 175            | 175            | 25           | 25           | 50            | 50            | 500   |
-| **Total**   | 525            | 525            | 75           | 75           | 150           | 150           | 1,500 |
+| Total       | 525            | 525            | 75           | 75           | 150           | 150           | 1,500 |
 ```
 
 
@@ -413,11 +413,11 @@ We will not be able to cover how to review these metrics in a programmatic envir
 - Non-max suppression
 - Tracking
 
-## Example Computer Vision Dataset
+## Example of a computer vision output dataset
 
 Below is an example of a classic computer vision (object detection) dataset structure:
 
-```markdown
+```{.markdown}
 | Filename     | Class      | xmin | xmax | ymin | ymax | Confidence |
 |--------------|------------|------|------|------|------|------------|
 | image1.jpg   | kangaroo   | 50   | 150  | 60   | 160  | 0.95       |
