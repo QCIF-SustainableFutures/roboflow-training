@@ -154,8 +154,8 @@ The model development dataset should be representative of the data that will be 
 - How many seasons / years?
   - 2 seasons
 
-::: {.callout-tip}
-Let's use a conservative 1,500 images per class 
+::: {.callout-note}
+Let's use a conservative 1,500 images **per class**
 :::
 ```markdown
 | Ecosystem   | Year 1 | Year 2 | Total |
@@ -291,6 +291,19 @@ You can always import labels from other tools / models / projects for images int
 **Reminder**: Upload images in batches that make sense for your project / later filtering analysis. **My tip**: upload images based on initial data splitting. 
 :::
 
+## Building your model development dataset - an example
+Remember this is for 1 class
+
+```markdown
+| Ecosystem   | Year 1 (Train) | Year 2 (Train) | Year 1 (Val) | Year 2 (Val) | Year 1 (Test) | Year 2 (Test) | Total |
+|-------------|----------------|----------------|--------------|--------------|---------------|---------------|-------|
+| Ecosystem 1 | 175            | 175            | 25           | 25           | 50            | 50            | 500   |
+| Ecosystem 2 | 175            | 175            | 25           | 25           | 50            | 50            | 500   |
+| Ecosystem 3 | 175            | 175            | 25           | 25           | 50            | 50            | 500   |
+| **Total**   | 525            | 525            | 75           | 75           | 150           | 150           | 1,500 |
+```
+
+
 ---
 
 # Module 4: Model training and evaluation
@@ -333,10 +346,11 @@ dataset = version.download("yolov8")
 ```
 ### Train the model (CLI)
 ```{.cli}
-!yolo task=detect mode=train epochs=10 batch=32 plots=True \
+!yolo task=detect mode=train epochs=50 batch=32 plots=True \
 model={HOME}/weights/yolov10n.pt \
 data={dataset.location}/data.yaml
 ```
+<span style="font-size:small;">I highly recommend you learn about batches and epochs</span>
 :::
 ::::
 
@@ -381,10 +395,11 @@ We will not be able to cover how to review these metrics in a programmatic envir
 - Not going to go in depth here
 - Confidence threshold
 - Non-max suppression
+- Tracking
 
 ## Example Computer Vision Dataset
 
-Below is an example of a classic computer vision dataset structure:
+Below is an example of a classic computer vision (object detection) dataset structure:
 
 ```markdown
 | Filename     | Class      | xmin | xmax | ymin | ymax | Confidence |
@@ -397,5 +412,31 @@ Below is an example of a classic computer vision dataset structure:
 | image6.jpg   | bird       | 90   | 190  | 110  | 210  | 0.90       |
 ```
 
+In most cases you will get results as a JSON file or individual txt files (for each image). You will spend some time doing data wrangling. 
+
 # Module 6: Roboflow workflows
 ## Workflows to assist development
+- Build your model development dataset quickly
+  - Upload images
+  - Use MegaDetector or SpeciesNet
+  - Auto-assign labels
+  - Auto-data splitting
+  - Training - Evaluation
+
+---
+
+# Recap of Modules 
+## Recap of Modules 
+- **Module 1**: AI, Deep Learning, and Computer Vision
+  - computer vision tasks
+- **Module 2**: Understanding the computer vision workflow
+  - importance of data splitting
+- **Module 3**: Building your model development dataset
+  - annotations and dataset versioning
+- **Module 4**: Model training and evaluation
+  - Different ways to train a model and evaluate it
+- **Module 5**: Model inference
+  - Post-processing and data wrangling
+- **Module 6**: Roboflow workflows
+  - Workflows to assist development
+
