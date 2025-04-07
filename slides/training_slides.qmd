@@ -1,5 +1,5 @@
 ---
-title: "A Masterclass on Roboflow and Computer Vision"
+title: "A Masterclass on Computer Vision and Roboflow"
 format: clean-revealjs
 html-math-method:
   method: mathjax
@@ -8,7 +8,7 @@ author:
   - name: Dr Sebastian Lopez Marcano
     orcid: 0000-0002-0814-2906
     email: s.lopezmarcano@qcif.edu.au
-    affiliations: QCIF
+    affiliations: QCIF Sustainable Futures
 date: last-modified
 ---
 
@@ -20,8 +20,9 @@ date: last-modified
   - Primary Objective: Staff training - understand computer vision models. 
   - Secondary Objective: WildObs may want to use Roboflow tools (e.g.,Python SDK) for model development and model deployment.
 - DETSI
-  - QCIF is supporting DETSI to develop an -inhouse- solution for key QLD wildlife species. PSP Advance Qld project. 
-  - Primary Objective: Get familiar with Roboflow and understand the theory behind computer vision models. Roboflow will be used to develop a computer vision model for DETSI.
+  - Developing an -inhouse- solution for key QLD wildlife species. PSP Advance QLD project.
+  - Primary Objective: Get familiar with Roboflow and understand the theory behind computer vision models. 
+  - Secondary Objective: Roboflow will be used to host and develop a computer vision model for DETSI.
 
 ::: {.callout-note}
 DETSI will be contributing datasets to WildObs. DETSI intends to use WildObs. 
@@ -34,7 +35,7 @@ DETSI will be contributing datasets to WildObs. DETSI intends to use WildObs.
 - **Module 3**: Building your model development dataset
 - **Module 4**: Model training and evaluation
 - **Module 5**: Model inference
-- **Module 6**: Roboflow workflows
+- **Module 6**: Roboflow 'workflows'
 
 ---
 
@@ -59,10 +60,12 @@ DETSI will be contributing datasets to WildObs. DETSI intends to use WildObs.
 ::::
 
 ## Computer vision tasks
-- **Image Classification**: Assigns a label to an entire image (e.g., "cat", "dog")
+- **Image Classification**: Assigns a label to an entire image (e.g., "possum", "animal")
 - **Object Detection**: Identifies and localizes multiple objects within an image (e.g., "cat" at (x,y) coordinates, "dog" at (x,y) coordinates)
 
-![](assets/img-classification_detection.png)
+![](assets/img-classification_detection.png){width="30%"}
+
+- MegaDetector is an **generic** object detector
 
 ## CV tasks in the context of camera trap monitoring
 ![](assets/generic_ai_camera_trap_workflow.png)
