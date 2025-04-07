@@ -1,48 +1,22 @@
-# Roboflow Training: Computer Vision 
+# A masterclass on computer vision and Roboflow
 
-This repository contains the code and resources for the Roboflow and computer vision training to WildObs, QCIF and DETSI. 
+This repository contains the resources for the Roboflow and computer vision training to WildObs, QCIF and DETSI. 
 
-## Install the required packages
-To install the required packages using the requirements.txt, run the following pip command in your terminal
-```bash
-cd path/to/this/repo/utilities
+The training was held on 2025-04-11 at UQ. 
 
-pip install -r requirements.txt
-```
+The slides are available in the `slides` directory. The slides were created in Quarto. The Quarto theme was slightly modified from the original version that can be found [here](https://github.com/grantmcdermott/quarto-revealjs-clean). 
 
-### If the pip command does not work
-In this training we are using the following packages
-1. pandas
-```bash
-pip install pandas
-```
-2. roboflow
-```bash
-pip install roboflow
-```
-3. supervision
-```bash
-pip install supervision
-```
-4. ultralytics
-```bash
-pip install ultralytics
-```
+The images used in the slides are available in the `assets` directory. The original images were created in Canva and screenshots were taken from the interface. 
 
-## Breakdown of modules
-**Module 1**: Introduction to Computer Vision
-- Mostly theory and introduction to computer vision, the different tasks and a brief oververview of a project lifecycle
+The training covered the following topics:
+- **Module 1**: AI, Deep Learning, and Computer Vision
+- **Module 2**: Understanding the computer vision workflow
+- **Module 3**: Building your model development dataset
+- **Module 4**: Model training and evaluation
+- **Module 5**: Model inference
+- **Module 6**: Roboflow 'workflows'
 
-**Module 2**: Pre-processing
-- File renaming using a csv map
 
-**Module 3**: Model Training, Evaluation and Prediction
-- Download open-source datasets (Roboflow Universe as a case study)
-- Training a model using YoloV8 (local machine)
-- Training a model using YoloV8 (Kaggle)
-- Predicting using a pre-trained model with ultralytics and supervision utilities
+> Disclaimer: The content of this repository is for educational purposes only and QCIF Sustainable Futures has no affiliation with Roboflow. 
 
-**Module 4**: Platforms for computer vision development
-- Introduction to Roboflow
-- Other useful platforms (Viame and Wildlife Insights)
 
