@@ -1,12 +1,14 @@
 # A masterclass on computer vision and Roboflow
 
-This repository contains the resources for the Roboflow and computer vision training to WildObs, QCIF and DETSI. 
+This repository contains the resources for the [Roboflow](https://roboflow.com/) and computer vision training to [WildObs Australia](https://wildobs.org.au/), [QCIF](https://www.qcif.edu.au/) and [DETSI](https://www.detsi.qld.gov.au/). 
 
 The training was held on 2025-04-11 at UQ. 
 
-The slides are available in the `slides` directory. The slides were created in Quarto. The Quarto theme was slightly modified from the original version that can be found [here](https://github.com/grantmcdermott/quarto-revealjs-clean). 
+The slides are available in the `slides` directory. The slides were created in Quarto. The Quarto theme used in the slides was slightly modified from the original version that can be found [here](https://github.com/grantmcdermott/quarto-revealjs-clean). 
 
 The images used in the slides are available in the `assets` directory. The original images were created in Canva and screenshots were taken from the interface. 
+
+The reason for this training was to provide a brief introduction to computer vision and Roboflow (as a tool to build computer vision models). 
 
 The training covered the following topics:
 - **Module 1**: AI, Deep Learning, and Computer Vision
