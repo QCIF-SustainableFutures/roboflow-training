@@ -12,7 +12,7 @@
 
   <meta name="author" content="Dr Sebastian Lopez Marcano">
   <meta name="dcterms.date" content="2025-04-07">
-  <title>A Masterclass on Roboflow and Computer Vision</title>
+  <title>A Masterclass on Computer Vision and Roboflow</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -392,7 +392,7 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">A Masterclass on Roboflow and Computer Vision</h1>
+  <h1 class="title">A Masterclass on Computer Vision and Roboflow</h1>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -403,7 +403,7 @@ Dr Sebastian Lopez Marcano <a href="https://orcid.org/0000-0002-0814-2906" class
 <a href="mailto:s.lopezmarcano@qcif.edu.au">s.lopezmarcano@qcif.edu.au</a>
 </div>
         <p class="quarto-title-affiliation">
-            QCIF
+            QCIF Sustainable Futures
           </p>
     </div>
 </div>
@@ -426,8 +426,9 @@ Dr Sebastian Lopez Marcano <a href="https://orcid.org/0000-0002-0814-2906" class
 </ul></li>
 <li>DETSI
 <ul>
-<li>QCIF is supporting DETSI to develop an -inhouse- solution for key QLD wildlife species. PSP Advance Qld project.</li>
-<li>Primary Objective: Get familiar with Roboflow and understand the theory behind computer vision models. Roboflow will be used to develop a computer vision model for DETSI.</li>
+<li>Developing an -inhouse- solution for key QLD wildlife species. PSP Advance QLD project.</li>
+<li>Primary Objective: Get familiar with Roboflow and understand the theory behind computer vision models.</li>
+<li>Secondary Objective: Roboflow will be used to host and develop a computer vision model for DETSI.</li>
 </ul></li>
 </ul>
 <div class="callout callout-note callout-titled callout-style-default">
@@ -452,7 +453,7 @@ Dr Sebastian Lopez Marcano <a href="https://orcid.org/0000-0002-0814-2906" class
 <li><strong>Module 3</strong>: Building your model development dataset</li>
 <li><strong>Module 4</strong>: Model training and evaluation</li>
 <li><strong>Module 5</strong>: Model inference</li>
-<li><strong>Module 6</strong>: Roboflow workflows</li>
+<li><strong>Module 6</strong>: Roboflow ‘workflows’</li>
 </ul>
 </section>
 <section class="slide level2">
@@ -484,11 +485,14 @@ Dr Sebastian Lopez Marcano <a href="https://orcid.org/0000-0002-0814-2906" class
 <section id="computer-vision-tasks" class="slide level2">
 <h2>Computer vision tasks</h2>
 <ul>
-<li><strong>Image Classification</strong>: Assigns a label to an entire image (e.g., “cat”, “dog”)</li>
+<li><strong>Image Classification</strong>: Assigns a label to an entire image (e.g., “possum”, “animal”)</li>
 <li><strong>Object Detection</strong>: Identifies and localizes multiple objects within an image (e.g., “cat” at (x,y) coordinates, “dog” at (x,y) coordinates)</li>
 </ul>
 
-<img data-src="assets/img-classification_detection.png" class="r-stretch"></section>
+<img data-src="assets/img-classification_detection.png" style="width:30.0%" class="r-stretch"><ul>
+<li>MegaDetector is an <strong>generic</strong> object detector</li>
+</ul>
+</section>
 <section id="cv-tasks-in-the-context-of-camera-trap-monitoring" class="slide level2">
 <h2>CV tasks in the context of camera trap monitoring</h2>
 
@@ -536,7 +540,7 @@ Dr Sebastian Lopez Marcano <a href="https://orcid.org/0000-0002-0814-2906" class
 <section id="data-collection-and-pre-processing" class="slide level2">
 <h2>🪜Data collection and pre-processing</h2>
 <ul>
-<li><strong>Data Collection</strong>: Gathering images from various sources (e.g., camera trap deployment, public datasets, web scraping)</li>
+<li><strong>Data Collection</strong>: Camera traps</li>
 <li><strong>Data Pre-processing</strong>: Cleaning and preparing data for further analysis
 <ul>
 <li>Rename files</li>
@@ -547,11 +551,11 @@ Dr Sebastian Lopez Marcano <a href="https://orcid.org/0000-0002-0814-2906" class
 <section id="create-account-and-project" class="slide level2">
 <h2><span style="color:purple;"> 🪜Create account and project</span></h2>
 <ul>
+<li>Let’s go to Roboflow!</li>
 <li>Create a Roboflow account</li>
 <li>Create a new project</li>
 </ul>
-
-<img data-src="assets/roboflow_click_prompt.png" style="width:20.0%" class="r-stretch"></section>
+</section>
 <section id="data-splitting-part-1" class="slide level2">
 <h2>🪜 Data Splitting Part 1</h2>
 <ul>
@@ -561,27 +565,26 @@ Dr Sebastian Lopez Marcano <a href="https://orcid.org/0000-0002-0814-2906" class
 <li>Inference dataset</li>
 </ul></li>
 </ul>
-<p>Depending on the dataset size, model development can be between 10-20% of the total dataset.</p>
-</section>
-<section id="data-splitting-part-2-broad-types-of-data-selection" class="slide level2">
-<h2>Data Splitting Part 2 : Broad types of data selection</h2>
-<ul>
-<li>General Computer Vision: Random selection</li>
-<li>Environmental Computer Vision: Targeted selection</li>
-</ul>
-<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout callout-note callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<p><strong>Tip</strong></p>
+<p><strong>Note</strong></p>
 </div>
 <div class="callout-content">
-<p>The higher the variability in the model development dataset, the better the model will perform in the field.</p>
+<p>Depending on the dataset size, the model development dataset can be between 10-20% of the entire dataset.</p>
 </div>
 </div>
 </div>
+</section>
+<section id="data-splitting-part-2-broad-types-of-data-selection" class="slide level2">
+<h2>Data Splitting Part 2 : Broad types of data selection</h2>
+<ul>
+<li>Computer vision researchers -&gt; Random selection</li>
+<li>Env computer vision researchers -&gt; Targeted selection</li>
+</ul>
 <div class="callout callout-important callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -604,62 +607,54 @@ Dr Sebastian Lopez Marcano <a href="https://orcid.org/0000-0002-0814-2906" class
 <p><strong>Important</strong></p>
 </div>
 <div class="callout-content">
-<p>The model development dataset should be representative of the data that will be processed in the field / future</p>
+<p>The model development dataset should be representative of the data that will be processed in the field / future. Variability is key.</p>
 </div>
 </div>
 </div>
 </section>
 <section id="data-splitting-part-3-importance-of-metadata" class="slide level2">
 <h2>Data Splitting Part 3: Importance of metadata</h2>
+<p>Metadata is crucial for understanding the context of the images and ensuring that the model is trained on relevant data.</p>
 <div class="columns">
 <div class="column" style="width:33%;">
 <ul>
-<li>Model trained on images from 🏖️ will not be accurate when applied to 🏞️</li>
+<li>Model trained on images from 🏖️ will not be accurate when deployed in 🏞️</li>
 </ul>
 </div><div class="column" style="width:33%;">
 <ul>
-<li>Model trained on images collected during ☀️ hours will not be accurate when applied to images collected at 🌝</li>
+<li>Model trained on images collected during ☀️ hours will not be accurate when processing images collected at 🌝</li>
 </ul>
 </div><div class="column" style="width:33%;">
 <ul>
-<li>For a single location, a model trained on images collected in <code>year 1</code> will not be <em>accurate</em> when applied to images collected in <code>year 2</code></li>
+<li>For a single location, a model trained on images collected in <code>year 1</code> will not be <em>accurate</em> when processing images collected in <code>year 2</code></li>
 </ul>
 </div></div>
 </section>
 <section id="data-splitting-part-4-relationship-between-objectives---metadata-and-data-splitting" class="slide level2">
 <h2>Data Splitting Part 4: Relationship between objectives - metadata and data splitting</h2>
 <ul>
+<li>This is why its important to determine your objectives at the beginning of the project</li>
+<li>Questions that require answers?
+<ul>
 <li>How many classes?</li>
 <li>How many ecosystems / locations?</li>
 <li>How many seasons / years?</li>
+</ul></li>
 </ul>
 </section>
 <section id="data-splitting-part-4-relationship-between-objectives---metadata-and-data-splitting-1" class="slide level2">
 <h2>Data Splitting Part 4: Relationship between objectives - metadata and data splitting</h2>
-<ul>
-<li>How many classes?
-<ul>
-<li>20 classes</li>
-</ul></li>
-<li>How many ecosystems / locations?
-<ul>
-<li>3 ecosystems</li>
-</ul></li>
-<li>How many seasons / years?
-<ul>
-<li>2 seasons</li>
-</ul></li>
-</ul>
-<div class="callout callout-tip callout-titled callout-style-default">
+<p>An example - How many classes? - 20 classes - How many ecosystems / locations? - 3 ecosystems - How many seasons / years? - 2 seasons</p>
+<div class="callout callout-note callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<p><strong>Tip</strong></p>
+<p><strong>Note</strong></p>
 </div>
 <div class="callout-content">
-<p>Let’s use a conservative 1,500 images per class</p>
+<p>Let’s use a conservative 1,500 images <strong>per class</strong></p>
 </div>
 </div>
 </div>
@@ -674,6 +669,32 @@ Dr Sebastian Lopez Marcano <a href="https://orcid.org/0000-0002-0814-2906" class
 <h2>Data Splitting Part 5: How many images do I need?</h2>
 
 <img data-src="assets/medium_guidelines_modeldevelopment.png" style="width:30.0%" class="r-stretch"><p><span style="font-size:small;">https://joelnadarai.medium.com/the-art-of-choosing-the-right-number-of-images-for-your-computer-vision-project-6e45efd1efbf#:~:text=For%20fine%2Dtuning%20pre%2Dtrained,per%20class%20for%20detection%20tasks.</span></p>
+<p>In my experience, there is no <em>magic</em> number.</p>
+</section>
+<section id="data-splitting-part-6-what-to-do-with-class-imbalance" class="slide level2">
+<h2>Data Splitting Part 6: What to do with class imbalance?</h2>
+<ul>
+<li><strong>Class imbalance</strong>: When one class has significantly more images than another</li>
+<li><strong>Solutions</strong>:
+<ul>
+<li>Merging classes</li>
+<li>Data augmentation</li>
+<li>Data filtering</li>
+<li>Data collection</li>
+</ul></li>
+</ul>
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href=""></a>| Class         | Number of Images | Notes                             |</span>
+<span id="cb2-2"><a href=""></a>|---------------|------------------|-----------------------------------|</span>
+<span id="cb2-3"><a href=""></a>| Kangaroo      | 1,200            | Overrepresented                   |</span>
+<span id="cb2-4"><a href=""></a>| Skink         | 300              | Underrepresented                  |</span>
+<span id="cb2-5"><a href=""></a>| Emu           | 150              | Severely underrepresented         |</span>
+<span id="cb2-6"><a href=""></a>| Wombat        | 800              | Moderately represented            |</span>
+<span id="cb2-7"><a href=""></a>| Possum        | 100              | Severely underrepresented         |</span>
+<span id="cb2-8"><a href=""></a>| Dingo         | 600              | Balanced                          |</span>
+<span id="cb2-9"><a href=""></a>| Echidna       | 50               | Rarely detected                   |</span>
+<span id="cb2-10"><a href=""></a>| Cockatoo      | 1,000            | Overrepresented                   |</span>
+<span id="cb2-11"><a href=""></a>| Platypus      | 20               | Extremely rare                    |</span>
+<span id="cb2-12"><a href=""></a>| Wallaby       | 700              | Balanced                          |</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section class="slide level2">
 
@@ -707,29 +728,31 @@ Dr Sebastian Lopez Marcano <a href="https://orcid.org/0000-0002-0814-2906" class
 <li><span style="color:purple;">Upload images to Roboflow</span>
 <ul>
 <li>Batch Name 🗒️</li>
+<li>Use a name that makes sense for later filtering</li>
 <li>Tags 🏷️</li>
+<li>Use tags that can help break down the data (e.g., ecosystem, year, season)</li>
 </ul></li>
-<li>Similar images from Object365</li>
+<li>Similar images from Object365
+<ul>
+<li>💡 Be careful with the license and introducing unwanted bias</li>
+</ul></li>
 </ul>
 </div><div class="column" style="width:50%;">
 <ul>
 <li>Upload images to Roboflow (Python SDK)</li>
 </ul>
-<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href=""></a><span class="im">from</span> roboflow <span class="im">import</span> Roboflow</span>
-<span id="cb2-2"><a href=""></a></span>
-<span id="cb2-3"><a href=""></a><span class="co"># Initialize the Roboflow object with your API key</span></span>
-<span id="cb2-4"><a href=""></a>rf <span class="op">=</span> Roboflow(api_key<span class="op">=</span><span class="st">"YOUR_PRIVATE_API_KEY"</span>)</span>
-<span id="cb2-5"><a href=""></a></span>
-<span id="cb2-6"><a href=""></a><span class="co"># Retrieve your current workspace and project name</span></span>
-<span id="cb2-7"><a href=""></a><span class="bu">print</span>(rf.workspace())</span>
-<span id="cb2-8"><a href=""></a></span>
-<span id="cb2-9"><a href=""></a><span class="co"># Project:https://app.roboflow.com/my-workspace/my-project</span></span>
-<span id="cb2-10"><a href=""></a>workspaceId <span class="op">=</span> <span class="st">'my-workspace'</span></span>
-<span id="cb2-11"><a href=""></a>projectId <span class="op">=</span> <span class="st">'my-project'</span></span>
-<span id="cb2-12"><a href=""></a>project <span class="op">=</span> rf.workspace(workspaceId).project(projectId)</span>
-<span id="cb2-13"><a href=""></a></span>
-<span id="cb2-14"><a href=""></a><span class="co"># Upload the image to your project</span></span>
-<span id="cb2-15"><a href=""></a>project.upload(<span class="st">"UPLOAD_IMAGE.jpg"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href=""></a><span class="im">from</span> roboflow <span class="im">import</span> Roboflow</span>
+<span id="cb3-2"><a href=""></a></span>
+<span id="cb3-3"><a href=""></a><span class="co"># Initialize the Roboflow object with your API key</span></span>
+<span id="cb3-4"><a href=""></a>rf <span class="op">=</span> Roboflow(api_key<span class="op">=</span><span class="st">"YOUR_PRIVATE_API_KEY"</span>)</span>
+<span id="cb3-5"><a href=""></a></span>
+<span id="cb3-6"><a href=""></a><span class="co"># Project:https://app.roboflow.com/my-workspace/my-project</span></span>
+<span id="cb3-7"><a href=""></a>workspaceId <span class="op">=</span> <span class="st">'my-workspace'</span></span>
+<span id="cb3-8"><a href=""></a>projectId <span class="op">=</span> <span class="st">'my-project'</span></span>
+<span id="cb3-9"><a href=""></a>project <span class="op">=</span> rf.workspace(workspaceId).project(projectId)</span>
+<span id="cb3-10"><a href=""></a></span>
+<span id="cb3-11"><a href=""></a><span class="co"># Upload the image to your project</span></span>
+<span id="cb3-12"><a href=""></a>project.upload(<span class="st">"UPLOAD_IMAGE.jpg"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div>
 </section>
 <section id="data-upload-part-2" class="slide level2">
@@ -743,7 +766,7 @@ Dr Sebastian Lopez Marcano <a href="https://orcid.org/0000-0002-0814-2906" class
 <p><strong>Tip</strong></p>
 </div>
 <div class="callout-content">
-<p>Upload images in batches that make sense for your project / later filtering analysis. <strong>My tip</strong>: upload images based on initial data splitting.</p>
+<p>Upload images in batches that make sense for your project. <strong>My tip</strong>: upload images based on initial data splitting.</p>
 </div>
 </div>
 </div>
@@ -756,7 +779,7 @@ Dr Sebastian Lopez Marcano <a href="https://orcid.org/0000-0002-0814-2906" class
 <p><strong>Tip</strong></p>
 </div>
 <div class="callout-content">
-<p>Always keep an eye on your limit for <code>source images</code>.</p>
+<p>Always keep an eye on your Roboflow limits.</p>
 </div>
 </div>
 </div>
@@ -778,7 +801,7 @@ Dr Sebastian Lopez Marcano <a href="https://orcid.org/0000-0002-0814-2906" class
 <li>Roboflow trained models</li>
 <li>Upload via API ⭐️</li>
 </ul></li>
-<li>Importance of confidene threshold when using zero-shot models</li>
+<li>Importance of confidence threshold when using zero-shot models</li>
 </ul></li>
 <li>Manual Label</li>
 </ul></li>
@@ -842,10 +865,33 @@ Dr Sebastian Lopez Marcano <a href="https://orcid.org/0000-0002-0814-2906" class
 <p><strong>Tip</strong></p>
 </div>
 <div class="callout-content">
-<p><strong>Reminder</strong>: Upload images in batches that make sense for your project / later filtering analysis. <strong>My tip</strong>: upload images based on initial data splitting.</p>
+<p><strong>Reminder</strong>: Upload images in batches that make sense for your project. <strong>My tip</strong>: upload images based on initial data splitting.</p>
 </div>
 </div>
 </div>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Note</strong></p>
+</div>
+<div class="callout-content">
+<p>Sometimes researchers use a further ‘test’ dataset. A harder dataset to do a final query on the model’s performance.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="building-your-model-development-dataset---an-example" class="slide level2">
+<h2>Building your model development dataset - an example</h2>
+<p>Remember this is for 1 class</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb4-1"><a href=""></a>| Ecosystem   | Year 1 (Train) | Year 2 (Train) | Year 1 (Val) | Year 2 (Val) | Year 1 (Test) | Year 2 (Test) | Total |</span>
+<span id="cb4-2"><a href=""></a>|-------------|----------------|----------------|--------------|--------------|---------------|---------------|-------|</span>
+<span id="cb4-3"><a href=""></a>| Ecosystem 1 | 175            | 175            | 25           | 25           | 50            | 50            | 500   |</span>
+<span id="cb4-4"><a href=""></a>| Ecosystem 2 | 175            | 175            | 25           | 25           | 50            | 50            | 500   |</span>
+<span id="cb4-5"><a href=""></a>| Ecosystem 3 | 175            | 175            | 25           | 25           | 50            | 50            | 500   |</span>
+<span id="cb4-6"><a href=""></a>| **Total**   | 525            | 525            | 75           | 75           | 150           | 150           | 1,500 |</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section class="slide level2">
 
@@ -888,19 +934,20 @@ Dr Sebastian Lopez Marcano <a href="https://orcid.org/0000-0002-0814-2906" class
 </ul>
 </div><div class="column" style="width:50%;">
 <h3 id="download-the-dataset-version-python">Download the dataset version (Python)</h3>
-<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href=""></a><span class="im">from</span> google.colab <span class="im">import</span> userdata</span>
-<span id="cb3-2"><a href=""></a><span class="im">from</span> roboflow <span class="im">import</span> Roboflow</span>
-<span id="cb3-3"><a href=""></a></span>
-<span id="cb3-4"><a href=""></a>ROBOFLOW_API_KEY <span class="op">=</span> userdata.get(<span class="st">'ROBOFLOW_API_KEY'</span>)</span>
-<span id="cb3-5"><a href=""></a></span>
-<span id="cb3-6"><a href=""></a>rf <span class="op">=</span> Roboflow(api_key<span class="op">=</span>ROBOFLOW_API_KEY)</span>
-<span id="cb3-7"><a href=""></a>project <span class="op">=</span> rf.workspace(<span class="st">"selencakmak"</span>).project(<span class="st">"tumor-dj2a1"</span>)</span>
-<span id="cb3-8"><a href=""></a>version <span class="op">=</span> project.version(<span class="dv">1</span>)</span>
-<span id="cb3-9"><a href=""></a>dataset <span class="op">=</span> version.download(<span class="st">"yolov8"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href=""></a><span class="im">from</span> google.colab <span class="im">import</span> userdata</span>
+<span id="cb5-2"><a href=""></a><span class="im">from</span> roboflow <span class="im">import</span> Roboflow</span>
+<span id="cb5-3"><a href=""></a></span>
+<span id="cb5-4"><a href=""></a>ROBOFLOW_API_KEY <span class="op">=</span> userdata.get(<span class="st">'ROBOFLOW_API_KEY'</span>)</span>
+<span id="cb5-5"><a href=""></a></span>
+<span id="cb5-6"><a href=""></a>rf <span class="op">=</span> Roboflow(api_key<span class="op">=</span>ROBOFLOW_API_KEY)</span>
+<span id="cb5-7"><a href=""></a>project <span class="op">=</span> rf.workspace(<span class="st">"selencakmak"</span>).project(<span class="st">"tumor-dj2a1"</span>)</span>
+<span id="cb5-8"><a href=""></a>version <span class="op">=</span> project.version(<span class="dv">1</span>)</span>
+<span id="cb5-9"><a href=""></a>dataset <span class="op">=</span> version.download(<span class="st">"yolov8"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <h3 id="train-the-model-cli">Train the model (CLI)</h3>
-<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource cli number-lines code-with-copy"><code class="sourceCode"><span id="cb4-1"><a href=""></a>!yolo task=detect mode=train epochs=10 batch=32 plots=True \</span>
-<span id="cb4-2"><a href=""></a>model={HOME}/weights/yolov10n.pt \</span>
-<span id="cb4-3"><a href=""></a>data={dataset.location}/data.yaml</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource cli number-lines code-with-copy"><code class="sourceCode"><span id="cb6-1"><a href=""></a>!yolo task=detect mode=train epochs=50 batch=32 plots=True \</span>
+<span id="cb6-2"><a href=""></a>model={HOME}/weights/yolov10n.pt \</span>
+<span id="cb6-3"><a href=""></a>data={dataset.location}/data.yaml</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><span style="font-size:small;">I highly recommend you learn about batches and epochs</span></p>
 </div></div>
 </section>
 <section id="model-validation---evaluation" class="slide level2">
@@ -976,19 +1023,21 @@ Dr Sebastian Lopez Marcano <a href="https://orcid.org/0000-0002-0814-2906" class
 <li>Not going to go in depth here</li>
 <li>Confidence threshold</li>
 <li>Non-max suppression</li>
+<li>Tracking</li>
 </ul>
 </section>
 <section id="example-computer-vision-dataset" class="slide level2">
 <h2>Example Computer Vision Dataset</h2>
-<p>Below is an example of a classic computer vision dataset structure:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb5-1"><a href=""></a>| Filename     | Class      | xmin | xmax | ymin | ymax | Confidence |</span>
-<span id="cb5-2"><a href=""></a>|--------------|------------|------|------|------|------|------------|</span>
-<span id="cb5-3"><a href=""></a>| image1.jpg   | kangaroo   | 50   | 150  | 60   | 160  | 0.95       |</span>
-<span id="cb5-4"><a href=""></a>| image2.jpg   | possum     | 30   | 130  | 40   | 140  | 0.20       |</span>
-<span id="cb5-5"><a href=""></a>| image3.jpg   | bird       | 100  | 200  | 120  | 220  | 0.92       |</span>
-<span id="cb5-6"><a href=""></a>| image4.jpg   | cat        | 70   | 170  | 80   | 180  | 0.97       |</span>
-<span id="cb5-7"><a href=""></a>| image5.jpg   | dog        | 20   | 120  | 30   | 130  | 0.85       |</span>
-<span id="cb5-8"><a href=""></a>| image6.jpg   | bird       | 90   | 190  | 110  | 210  | 0.90       |</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Below is an example of a classic computer vision (object detection) dataset structure:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb7-1"><a href=""></a>| Filename     | Class      | xmin | xmax | ymin | ymax | Confidence |</span>
+<span id="cb7-2"><a href=""></a>|--------------|------------|------|------|------|------|------------|</span>
+<span id="cb7-3"><a href=""></a>| image1.jpg   | kangaroo   | 50   | 150  | 60   | 160  | 0.95       |</span>
+<span id="cb7-4"><a href=""></a>| image2.jpg   | possum     | 30   | 130  | 40   | 140  | 0.20       |</span>
+<span id="cb7-5"><a href=""></a>| image3.jpg   | bird       | 100  | 200  | 120  | 220  | 0.92       |</span>
+<span id="cb7-6"><a href=""></a>| image4.jpg   | cat        | 70   | 170  | 80   | 180  | 0.97       |</span>
+<span id="cb7-7"><a href=""></a>| image5.jpg   | dog        | 20   | 120  | 30   | 130  | 0.85       |</span>
+<span id="cb7-8"><a href=""></a>| image6.jpg   | bird       | 90   | 190  | 110  | 210  | 0.90       |</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>In most cases you will get results as a JSON file or individual txt files (for each image). You will spend some time doing data wrangling.</p>
 </section></section>
 <section>
 <section id="module-6-roboflow-workflows" class="title-slide slide level1 center">
@@ -997,6 +1046,53 @@ Dr Sebastian Lopez Marcano <a href="https://orcid.org/0000-0002-0814-2906" class
 </section>
 <section id="workflows-to-assist-development" class="slide level2">
 <h2>Workflows to assist development</h2>
+<ul>
+<li>Build your model development dataset quickly
+<ul>
+<li>Upload images</li>
+<li>Use MegaDetector or SpeciesNet</li>
+<li>Auto-assign labels</li>
+<li>Auto-data splitting</li>
+<li>Training - Evaluation</li>
+</ul></li>
+</ul>
+</section>
+<section class="slide level2">
+
+</section></section>
+<section>
+<section id="recap-of-modules" class="title-slide slide level1 center">
+<h1>Recap of Modules</h1>
+
+</section>
+<section id="recap-of-modules-1" class="slide level2">
+<h2>Recap of Modules</h2>
+<ul>
+<li><strong>Module 1</strong>: AI, Deep Learning, and Computer Vision
+<ul>
+<li>computer vision tasks</li>
+</ul></li>
+<li><strong>Module 2</strong>: Understanding the computer vision workflow
+<ul>
+<li>importance of data splitting</li>
+</ul></li>
+<li><strong>Module 3</strong>: Building your model development dataset
+<ul>
+<li>annotations and dataset versioning</li>
+</ul></li>
+<li><strong>Module 4</strong>: Model training and evaluation
+<ul>
+<li>Different ways to train a model and evaluate it</li>
+</ul></li>
+<li><strong>Module 5</strong>: Model inference
+<ul>
+<li>Post-processing and data wrangling</li>
+</ul></li>
+<li><strong>Module 6</strong>: Roboflow workflows
+<ul>
+<li>Workflows to assist development</li>
+</ul></li>
+</ul>
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">
 
