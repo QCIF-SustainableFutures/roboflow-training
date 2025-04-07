@@ -12,7 +12,20 @@ author:
 date: last-modified
 ---
 
-# Introduction to Computer Vision Workflows
+# Objectives and Overview
+
+## Why this workshop
+- WildObs
+  - A national platform for camera trap monitoring. Supported by many organisations. In development. 2024-2026. 
+  - Primary Objective: Staff training - understand the background of computer vision models that will be used in WildObs. 
+  - Secondary Objective: WildObs may want to use Roboflow tools (e.g.,Python SDK) for model development and model deployment.
+- DETSI
+  - QCIF is supporting DETSI to develop an -inhouse- computer vision model for key QLD wildlife species. Feb - Sept 2025. PSP Advance Qld project. 
+  - Primary Objective: Get familiar with Roboflow and understand the theory behind computer vision models. Roboflow will be used to develop a computer vision model for DETSI.
+
+::: {.callout-note}
+DETSI will be contributing datasets to WildObs. DETSI intends to use WildObs. 
+:::
 
 ## Modules Overview
 
@@ -50,6 +63,11 @@ date: last-modified
 ## Image Classification vs Object Detection
 ![](assets/img-classification_detection.png)
 
+## CV tasks in the context of camera trap monitoring
+![](assets/generic_ai_camera_trap_workflow.png)
+
+---
+
 # Module 2: Understanding the computer vision workflow
 ## Key Steps *✨<span style="color:purple;">with the Roboflow sparkle</span>✨*
 - Objective and infrastructure
@@ -84,8 +102,9 @@ date: last-modified
 - Create a new project
 
 ## Data Splitting Part 1
-- Model development dataset (e.g., training, validation, evaluation)
-- Inference dataset
+- Now we need data to add into our project
+  - Model development dataset (e.g., training, validation, evaluation)
+  - Inference dataset
 
 Depending on the dataset size, model development can be between 10-20% of the total dataset.
 
@@ -119,6 +138,30 @@ In Roboflow, you will have to split your dataset into training, validation and e
 :::
 ::::
 
+## Data Splitting Part 4: Relationship between objectives - metadata and data splitting
+- How many classes?
+- How many ecosystems / locations?
+- How many seasons / years?
+
+## Data Splitting Part 4: Relationship between objectives - metadata and data splitting
+- How many classes?
+  - 20 classes
+- How many ecosystems / locations?
+  - 3 ecosystems
+- How many seasons / years?
+  - 2 seasons
+
+::: {.callout-tip}
+Let's use a conservative 1,500 images per class 
+:::
+```markdown
+| Ecosystem   | Year 1 | Year 2 | Total |
+|-------------|--------|--------|-------|
+| Ecosystem 1 | 250    | 250    | 500   |
+| Ecosystem 2 | 250    | 250    | 500   |
+| Ecosystem 3 | 250    | 250    | 500   |
+| **Total**   | 750    | 750    | 1,500 |
+```
 ---
 
 # Module 3: Building your model development dataset
@@ -311,17 +354,17 @@ We will not be able to cover how to review these metrics in a programmatic envir
 ## Example Computer Vision Dataset
 
 Below is an example of a classic computer vision dataset structure:
-```plaintext
-| Filename     | Class | xmin | xmax | ymin | ymax | Confidence |
-|--------------|-------|------|------|------|------|------------|
-| image1.jpg   | kangaroo   | 50   | 150  | 60   | 160  | 0.95       |
-| image2.jpg   | possum  | 30   | 130  | 40   | 140  | 0.20       |
-| image3.jpg   | bird  | 100  | 200  | 120  | 220  | 0.92       |
-| image4.jpg   | cat   | 70   | 170  | 80   | 180  | 0.97       |
-| image5.jpg   | dog   | 20   | 120  | 30   | 130  | 0.85       |
-| image6.jpg   | bird  | 90   | 190  | 110  | 210  | 0.90       |
-```
 
+```markdown
+| Filename     | Class      | xmin | xmax | ymin | ymax | Confidence |
+|--------------|------------|------|------|------|------|------------|
+| image1.jpg   | kangaroo   | 50   | 150  | 60   | 160  | 0.95       |
+| image2.jpg   | possum     | 30   | 130  | 40   | 140  | 0.20       |
+| image3.jpg   | bird       | 100  | 200  | 120  | 220  | 0.92       |
+| image4.jpg   | cat        | 70   | 170  | 80   | 180  | 0.97       |
+| image5.jpg   | dog        | 20   | 120  | 30   | 130  | 0.85       |
+| image6.jpg   | bird       | 90   | 190  | 110  | 210  | 0.90       |
+```
 
 # Module 6: Roboflow workflows
 ## Workflows to assist development

@@ -11,7 +11,7 @@
   <meta name="generator" content="quarto-1.5.57">
 
   <meta name="author" content="Dr Sebastian Lopez Marcano">
-  <meta name="dcterms.date" content="2025-04-04">
+  <meta name="dcterms.date" content="2025-04-07">
   <title>A Masterclass on Roboflow and Computer Vision</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -408,12 +408,41 @@ Dr Sebastian Lopez Marcano <a href="https://orcid.org/0000-0002-0814-2906" class
     </div>
 </div>
 
-  <p class="date">April 4, 2025</p>
+  <p class="date">April 7, 2025</p>
 </section>
 <section>
-<section id="introduction-to-computer-vision-workflows" class="title-slide slide level1 center">
-<h1>Introduction to Computer Vision Workflows</h1>
+<section id="objectives-and-overview" class="title-slide slide level1 center">
+<h1>Objectives and Overview</h1>
 
+</section>
+<section id="why-this-workshop" class="slide level2">
+<h2>Why this workshop</h2>
+<ul>
+<li>WildObs
+<ul>
+<li>A national platform for camera trap monitoring. Supported by many organisations. In development. 2024-2026.</li>
+<li>Primary Objective: Staff training - understand the background of computer vision models that will be used in WildObs.</li>
+<li>Secondary Objective: WildObs may want to use Roboflow tools (e.g.,Python SDK) for model development and model deployment.</li>
+</ul></li>
+<li>DETSI
+<ul>
+<li>QCIF is supporting DETSI to develop an -inhouse- computer vision model for key QLD wildlife species. Feb - Sept 2025. PSP Advance Qld project.</li>
+<li>Primary Objective: Get familiar with Roboflow and understand the theory behind computer vision models. Roboflow will be used to develop a computer vision model for DETSI.</li>
+</ul></li>
+</ul>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Note</strong></p>
+</div>
+<div class="callout-content">
+<p>DETSI will be contributing datasets to WildObs. DETSI intends to use WildObs.</p>
+</div>
+</div>
+</div>
 </section>
 <section id="modules-overview" class="slide level2">
 <h2>Modules Overview</h2>
@@ -455,7 +484,14 @@ Dr Sebastian Lopez Marcano <a href="https://orcid.org/0000-0002-0814-2906" class
 <section id="image-classification-vs-object-detection" class="slide level2">
 <h2>Image Classification vs Object Detection</h2>
 
-<img data-src="assets/img-classification_detection.png" class="r-stretch"></section></section>
+<img data-src="assets/img-classification_detection.png" class="r-stretch"></section>
+<section id="cv-tasks-in-the-context-of-camera-trap-monitoring" class="slide level2">
+<h2>CV tasks in the context of camera trap monitoring</h2>
+
+<img data-src="assets/generic_ai_camera_trap_workflow.png" class="r-stretch"></section>
+<section class="slide level2">
+
+</section></section>
 <section>
 <section id="module-2-understanding-the-computer-vision-workflow" class="title-slide slide level1 center">
 <h1>Module 2: Understanding the computer vision workflow</h1>
@@ -514,8 +550,11 @@ Dr Sebastian Lopez Marcano <a href="https://orcid.org/0000-0002-0814-2906" class
 <section id="data-splitting-part-1" class="slide level2">
 <h2>Data Splitting Part 1</h2>
 <ul>
+<li>Now we need data to add into our project
+<ul>
 <li>Model development dataset (e.g., training, validation, evaluation)</li>
 <li>Inference dataset</li>
+</ul></li>
 </ul>
 <p>Depending on the dataset size, model development can be between 10-20% of the total dataset.</p>
 </section>
@@ -582,6 +621,50 @@ Dr Sebastian Lopez Marcano <a href="https://orcid.org/0000-0002-0814-2906" class
 </ul>
 </div></div>
 </section>
+<section id="data-splitting-part-4-relationship-between-objectives---metadata-and-data-splitting" class="slide level2">
+<h2>Data Splitting Part 4: Relationship between objectives - metadata and data splitting</h2>
+<ul>
+<li>How many classes?</li>
+<li>How many ecosystems / locations?</li>
+<li>How many seasons / years?</li>
+</ul>
+</section>
+<section id="data-splitting-part-4-relationship-between-objectives---metadata-and-data-splitting-1" class="slide level2">
+<h2>Data Splitting Part 4: Relationship between objectives - metadata and data splitting</h2>
+<ul>
+<li>How many classes?
+<ul>
+<li>20 classes</li>
+</ul></li>
+<li>How many ecosystems / locations?
+<ul>
+<li>3 ecosystems</li>
+</ul></li>
+<li>How many seasons / years?
+<ul>
+<li>2 seasons</li>
+</ul></li>
+</ul>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Tip</strong></p>
+</div>
+<div class="callout-content">
+<p>Let’s use a conservative 1,500 images per class</p>
+</div>
+</div>
+</div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href=""></a>| Ecosystem   | Year 1 | Year 2 | Total |</span>
+<span id="cb1-2"><a href=""></a>|-------------|--------|--------|-------|</span>
+<span id="cb1-3"><a href=""></a>| Ecosystem 1 | 250    | 250    | 500   |</span>
+<span id="cb1-4"><a href=""></a>| Ecosystem 2 | 250    | 250    | 500   |</span>
+<span id="cb1-5"><a href=""></a>| Ecosystem 3 | 250    | 250    | 500   |</span>
+<span id="cb1-6"><a href=""></a>| **Total**   | 750    | 750    | 1,500 |</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
 <section class="slide level2">
 
 </section></section>
@@ -622,21 +705,21 @@ Dr Sebastian Lopez Marcano <a href="https://orcid.org/0000-0002-0814-2906" class
 <ul>
 <li>Upload images to Roboflow (Python SDK)</li>
 </ul>
-<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href=""></a><span class="im">from</span> roboflow <span class="im">import</span> Roboflow</span>
-<span id="cb1-2"><a href=""></a></span>
-<span id="cb1-3"><a href=""></a><span class="co"># Initialize the Roboflow object with your API key</span></span>
-<span id="cb1-4"><a href=""></a>rf <span class="op">=</span> Roboflow(api_key<span class="op">=</span><span class="st">"YOUR_PRIVATE_API_KEY"</span>)</span>
-<span id="cb1-5"><a href=""></a></span>
-<span id="cb1-6"><a href=""></a><span class="co"># Retrieve your current workspace and project name</span></span>
-<span id="cb1-7"><a href=""></a><span class="bu">print</span>(rf.workspace())</span>
-<span id="cb1-8"><a href=""></a></span>
-<span id="cb1-9"><a href=""></a><span class="co"># Project:https://app.roboflow.com/my-workspace/my-project</span></span>
-<span id="cb1-10"><a href=""></a>workspaceId <span class="op">=</span> <span class="st">'my-workspace'</span></span>
-<span id="cb1-11"><a href=""></a>projectId <span class="op">=</span> <span class="st">'my-project'</span></span>
-<span id="cb1-12"><a href=""></a>project <span class="op">=</span> rf.workspace(workspaceId).project(projectId)</span>
-<span id="cb1-13"><a href=""></a></span>
-<span id="cb1-14"><a href=""></a><span class="co"># Upload the image to your project</span></span>
-<span id="cb1-15"><a href=""></a>project.upload(<span class="st">"UPLOAD_IMAGE.jpg"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href=""></a><span class="im">from</span> roboflow <span class="im">import</span> Roboflow</span>
+<span id="cb2-2"><a href=""></a></span>
+<span id="cb2-3"><a href=""></a><span class="co"># Initialize the Roboflow object with your API key</span></span>
+<span id="cb2-4"><a href=""></a>rf <span class="op">=</span> Roboflow(api_key<span class="op">=</span><span class="st">"YOUR_PRIVATE_API_KEY"</span>)</span>
+<span id="cb2-5"><a href=""></a></span>
+<span id="cb2-6"><a href=""></a><span class="co"># Retrieve your current workspace and project name</span></span>
+<span id="cb2-7"><a href=""></a><span class="bu">print</span>(rf.workspace())</span>
+<span id="cb2-8"><a href=""></a></span>
+<span id="cb2-9"><a href=""></a><span class="co"># Project:https://app.roboflow.com/my-workspace/my-project</span></span>
+<span id="cb2-10"><a href=""></a>workspaceId <span class="op">=</span> <span class="st">'my-workspace'</span></span>
+<span id="cb2-11"><a href=""></a>projectId <span class="op">=</span> <span class="st">'my-project'</span></span>
+<span id="cb2-12"><a href=""></a>project <span class="op">=</span> rf.workspace(workspaceId).project(projectId)</span>
+<span id="cb2-13"><a href=""></a></span>
+<span id="cb2-14"><a href=""></a><span class="co"># Upload the image to your project</span></span>
+<span id="cb2-15"><a href=""></a>project.upload(<span class="st">"UPLOAD_IMAGE.jpg"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div>
 </section>
 <section id="data-upload-part-2" class="slide level2">
@@ -795,19 +878,19 @@ Dr Sebastian Lopez Marcano <a href="https://orcid.org/0000-0002-0814-2906" class
 </ul>
 </div><div class="column" style="width:50%;">
 <h3 id="download-the-dataset-version-python">Download the dataset version (Python)</h3>
-<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href=""></a><span class="im">from</span> google.colab <span class="im">import</span> userdata</span>
-<span id="cb2-2"><a href=""></a><span class="im">from</span> roboflow <span class="im">import</span> Roboflow</span>
-<span id="cb2-3"><a href=""></a></span>
-<span id="cb2-4"><a href=""></a>ROBOFLOW_API_KEY <span class="op">=</span> userdata.get(<span class="st">'ROBOFLOW_API_KEY'</span>)</span>
-<span id="cb2-5"><a href=""></a></span>
-<span id="cb2-6"><a href=""></a>rf <span class="op">=</span> Roboflow(api_key<span class="op">=</span>ROBOFLOW_API_KEY)</span>
-<span id="cb2-7"><a href=""></a>project <span class="op">=</span> rf.workspace(<span class="st">"selencakmak"</span>).project(<span class="st">"tumor-dj2a1"</span>)</span>
-<span id="cb2-8"><a href=""></a>version <span class="op">=</span> project.version(<span class="dv">1</span>)</span>
-<span id="cb2-9"><a href=""></a>dataset <span class="op">=</span> version.download(<span class="st">"yolov8"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href=""></a><span class="im">from</span> google.colab <span class="im">import</span> userdata</span>
+<span id="cb3-2"><a href=""></a><span class="im">from</span> roboflow <span class="im">import</span> Roboflow</span>
+<span id="cb3-3"><a href=""></a></span>
+<span id="cb3-4"><a href=""></a>ROBOFLOW_API_KEY <span class="op">=</span> userdata.get(<span class="st">'ROBOFLOW_API_KEY'</span>)</span>
+<span id="cb3-5"><a href=""></a></span>
+<span id="cb3-6"><a href=""></a>rf <span class="op">=</span> Roboflow(api_key<span class="op">=</span>ROBOFLOW_API_KEY)</span>
+<span id="cb3-7"><a href=""></a>project <span class="op">=</span> rf.workspace(<span class="st">"selencakmak"</span>).project(<span class="st">"tumor-dj2a1"</span>)</span>
+<span id="cb3-8"><a href=""></a>version <span class="op">=</span> project.version(<span class="dv">1</span>)</span>
+<span id="cb3-9"><a href=""></a>dataset <span class="op">=</span> version.download(<span class="st">"yolov8"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <h3 id="train-the-model-cli">Train the model (CLI)</h3>
-<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource cli number-lines code-with-copy"><code class="sourceCode"><span id="cb3-1"><a href=""></a>!yolo task=detect mode=train epochs=10 batch=32 plots=True \</span>
-<span id="cb3-2"><a href=""></a>model={HOME}/weights/yolov10n.pt \</span>
-<span id="cb3-3"><a href=""></a>data={dataset.location}/data.yaml</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource cli number-lines code-with-copy"><code class="sourceCode"><span id="cb4-1"><a href=""></a>!yolo task=detect mode=train epochs=10 batch=32 plots=True \</span>
+<span id="cb4-2"><a href=""></a>model={HOME}/weights/yolov10n.pt \</span>
+<span id="cb4-3"><a href=""></a>data={dataset.location}/data.yaml</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div>
 </section>
 <section id="model-validation---evaluation" class="slide level2">
@@ -833,8 +916,21 @@ Dr Sebastian Lopez Marcano <a href="https://orcid.org/0000-0002-0814-2906" class
 <section id="understanding-validation-and-evaluation-results" class="slide level2">
 <h2>Understanding validation and evaluation results</h2>
 <ul>
-<li>Lets review these outputs in Roboflow :::: {.callout-note} We will not be able to cover how to review these metrics in a programmatic environment :::</li>
+<li>Lets review these outputs in Roboflow</li>
 </ul>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Note</strong></p>
+</div>
+<div class="callout-content">
+<p>We will not be able to cover how to review these metrics in a programmatic environment</p>
+</div>
+</div>
+</div>
 </section></section>
 <section>
 <section id="module-5-model-inference" class="title-slide slide level1 center">
@@ -861,7 +957,7 @@ Dr Sebastian Lopez Marcano <a href="https://orcid.org/0000-0002-0814-2906" class
 <h2><span style="color:purple;">Model inference</span></h2>
 <ul>
 <li><strong>Inference</strong>: The process of using a trained model to make predictions on new, unseen data</li>
-<li>Let’s use th Deployments tab in Roboflow to deploy our model</li>
+<li>Let’s use the Deployments tab in Roboflow to deploy our model</li>
 </ul>
 </section>
 <section id="post-processing" class="slide level2">
@@ -874,10 +970,15 @@ Dr Sebastian Lopez Marcano <a href="https://orcid.org/0000-0002-0814-2906" class
 </section>
 <section id="example-computer-vision-dataset" class="slide level2">
 <h2>Example Computer Vision Dataset</h2>
-<p>Below is an example of a classic computer vision dataset structure: | Filename | Class | xmin | xmax | ymin | ymax | Confidence | |————–|——-|——|——|——|——|————| | image1.jpg | kangaroo | 50 | 150 | 60 | 160 | 0.95 | | image2.jpg | possum | 30 | 130 | 40 | 140 | 0.20 | | image3.jpg | bird | 100 | 200 | 120 | 220 | 0.92 | | image4.jpg | cat | 70 | 170 | 80 | 180 | 0.97 | | image5.jpg | dog | 20 | 120 | 30 | 130 | 0.85 | | image6.jpg | bird | 90 | 190 | 110 | 210 | 0.90 |</p>
-</section>
-<section class="slide level2">
-
+<p>Below is an example of a classic computer vision dataset structure:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource plaintext number-lines code-with-copy"><code class="sourceCode"><span id="cb5-1"><a href=""></a>| Filename     | Class | xmin | xmax | ymin | ymax | Confidence |</span>
+<span id="cb5-2"><a href=""></a>|--------------|-------|------|------|------|------|------------|</span>
+<span id="cb5-3"><a href=""></a>| image1.jpg   | kangaroo   | 50   | 150  | 60   | 160  | 0.95       |</span>
+<span id="cb5-4"><a href=""></a>| image2.jpg   | possum  | 30   | 130  | 40   | 140  | 0.20       |</span>
+<span id="cb5-5"><a href=""></a>| image3.jpg   | bird  | 100  | 200  | 120  | 220  | 0.92       |</span>
+<span id="cb5-6"><a href=""></a>| image4.jpg   | cat   | 70   | 170  | 80   | 180  | 0.97       |</span>
+<span id="cb5-7"><a href=""></a>| image5.jpg   | dog   | 20   | 120  | 30   | 130  | 0.85       |</span>
+<span id="cb5-8"><a href=""></a>| image6.jpg   | bird  | 90   | 190  | 110  | 210  | 0.90       |</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section></section>
 <section>
 <section id="module-6-roboflow-workflows" class="title-slide slide level1 center">
