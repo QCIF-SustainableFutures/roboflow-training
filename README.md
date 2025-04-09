@@ -18,6 +18,8 @@ The training covered the following topics:
 - **Module 5**: Model inference
 - **Module 6**: Roboflow 'workflows'
 
+A good dataset to practice with Roboflow is [here](https://universe.roboflow.com/vijay-vikas-mangena/ostrich_cocotodarknet). This dataset contains camera trap images of terrestrial animals. 
+
 
 > Disclaimer: The content of this repository is for educational purposes only and QCIF Sustainable Futures has no affiliation with Roboflow. 
 

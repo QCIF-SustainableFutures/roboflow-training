@@ -14,14 +14,18 @@ date: last-modified
 
 # Objectives and Overview
 
+## Acknowledgement of Country
+We acknowledge the Turrbal and Yuggera peoples as Traditional Owners of the land we live and work on, and pay respects to Elders past, present and emerging
+
 ## Why this workshop (WildObs)
 - WildObs
   - A national platform for camera trap monitoring. 
   - Primary Objective: Staff training - understand computer vision models. 
   - Secondary Objective: WildObs may want to use Roboflow tools (e.g.,Python SDK) for model development and model deployment.
+
 ## Why this workshop (DETSI)
-DETSI
-  - Developing an -inhouse- solution for key QLD wildlife species. PSP Advance QLD project.
+- DETSI
+  - Developing an -inhouse- solution for key QLD wildlife species PSP Advance QLD project.
   - Primary Objective: Get familiar with Roboflow and understand the theory behind computer vision models. 
   - Secondary Objective: Roboflow will be used to host and develop a computer vision model for DETSI.
 
@@ -56,6 +60,7 @@ DETSI will be contributing datasets to WildObs. DETSI intends to use WildObs.
 **What is Computer Vision?**
 
 - A field of AI that enables computers to interpret and understand visual information
+
 - Key applications: classification, object detection and segmentation
 :::
 
@@ -67,7 +72,7 @@ DETSI will be contributing datasets to WildObs. DETSI intends to use WildObs.
 
 ![](assets/img-classification_detection.png){width="30%"}
 
-- MegaDetector is an **generic** object detector
+- MegaDetector is a **generic** object detector
 
 ## CV tasks in the context of camera trap monitoring
 ![](assets/generic_ai_camera_trap_workflow.png)
@@ -107,6 +112,14 @@ DETSI will be contributing datasets to WildObs. DETSI intends to use WildObs.
 - Let's go to Roboflow!
 - Create a Roboflow account
 - Create a new project
+  - Project name
+  - Project type (remember the different computer vision tasks)
+  - Project visibility (public or private)
+  - License (e.g., CC-BY, CC-BY-NC)
+
+::: {.callout-important}
+Roboflow is free to use, but has some limitations. Private projects are only available for paid users.
+:::
 
 
 ## 🪜 Data Splitting Part 1
@@ -154,13 +167,9 @@ Metadata is crucial for understanding the context of the images and ensuring tha
   - How many seasons / years?
 
 ## Data Splitting Part 4: Relationship between objectives - metadata and data splitting
-An example
-- How many classes?
-  - 20 classes
-- How many ecosystems / locations?
-  - 3 ecosystems
-- How many seasons / years?
-  - 2 seasons
+- 20 classes
+- 3 ecosystems
+- 2 seasons
 
 ::: {.callout-note}
 Let's use a conservative 1,500 images **per class**
@@ -224,6 +233,9 @@ In my experience, there is no *magic* number.
 - Post-processing
 
 ## 🪜 Data upload part 1
+
+Lets use the `sample_camera_trap_images` dataset as an example
+
 :::: {.columns}
 ::: {.column width="50%"}
 - <span style="color:purple;">Upload images to Roboflow</span>
@@ -262,6 +274,14 @@ Upload images in batches that make sense for your project. **My tip**: upload im
 ::: {.callout-tip}
 Always keep an eye on your Roboflow limits.
 ::: 
+
+## Data upload part 3
+- Roboflow also has Roboflow Universe 
+  - A collection of datasets and models that can be used for training and evaluation
+  - Can be used to augment your dataset
+  - For WildObs: The best version of what a tagged image repository should look like
+- Lets go to this link https://universe.roboflow.com/vijay-vikas-mangena/ostrich_cocotodarknet 
+  - This will create a new project
 
 ## 🪜 Data annotation part 1
 ![Annotation types](assets/annotation_types.png)
